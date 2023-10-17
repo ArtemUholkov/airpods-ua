@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--FONTS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!--FONTS-->
+    <!-- Slider-swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <!-- Slider-swiper -->
+    <title>AirPods - Символ Інновацій та Елегантності</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="img/global/favicon.png" />
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header_wrapper mycontainer">
+        <nav class="navbar">
+          <div class="header_pair">
+            <a href="index.html" class="logo_wrapper">
+              <img src="img/global/logo.png" alt="logo" class="main-logo logo-white" />
+              <img src="img/global/logo.png" alt="logo" class="main-logo logo-hide logo-color" />
+            </a>
+
+            <ul class="navbar_menu">
+              <li><p class="nav_elem" href="" onclick="scrollToNumbers()">Продукція</p></li>
+              <li><p class="nav_elem" href="#" onclick="scrollToSolutions()">Ціна</p></li>
+              <li><p class="nav_elem" href="#" onclick="scrollToProcess()">Відгуки</p></li>
+              <li><p class="nav_elem" href="#" onclick="scrollToReviews()">FAQs</p></li>
+              <li><p class="nav_elem" href="#" onclick="scrollToTeam()">Контакти</p></li>
+            </ul>
+          </div>
+          <div class="header_pair">
+            <div class="header_button_pair">
+              <a href="#contacts" class="main_button" onclick="scrollToSub()"
+                >Обери найкраще <img class="arrow_icon" src="img/global/icon_arrow.svg" alt="icon"
+              /></a>
+            </div>
+            <img src="img/header/cart.svg" alt="cart icon" class="cart_icon" />
+          </div>
+          <div class="burger">
+            <div class="burger_space" id="burger">
+              <span class="stick"></span>
+              <span class="stick"></span>
+              <span class="stick"></span>
+            </div>
+          </div>
+        </nav>
+        <div class="popup" id="popup">
+          <div class="popup_textblock" id="popupSlide">
+            <ul class="navbar_menu_mobile">
+              <li><p class="nav_elem_mobile" href="" onclick="scrollToNumbers()">Продукція</p></li>
+              <li>
+                <p class="nav_elem_mobile" href="" onclick="scrollToSolutions()">Ціна</p>
+              </li>
+              <li>
+                <p class="nav_elem_mobile" href="" onclick="scrollToProcess()">Відгуки</p>
+              </li>
+              <li>
+                <p class="nav_elem_mobile" href="" onclick="scrollToReviews()">FAQs</p>
+              </li>
+              <li>
+                <p class="nav_elem_mobile" href="" onclick="scrollToTeam()">Контакти</p>
+              </li>
+            </ul>
+            <div class="header_button_pair mob_menu_buttons">
+              <a href="#contacts" class="main_button mob_button" onclick="scrollToSub()"
+                >Get started <img class="arrow_icon" src="img/global/icon_arrow.svg" alt="icon"
+              /></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="main_picture">
+      <div class="main_caption"></div>
+      <img src="img/main/head.png" alt="head" class="main_head_img" />
+      <img src="img/main/maintext.png" alt="main text" class="main_text_img" />
+      <div class="main_picture_content_wrapper" id="container">
+        <!-- <a
+          href="#contacts"
+          class="mob_button main_picture_button main_button"
+          onclick="scrollToSub()"
+          >Feel the difference<img class="arrow_icon" src="img/global/icon_arrow.svg" alt="icon"
+        /></a> -->
+      </div>
+
+      <div class="running-line righttoleft">
+        <div class="running-line_wrapper">
+          <p class="running-line_text">ПОЗА ЗВИЧАНИМ</p>
+          <span class="running-line_circle"></span>
+          <p class="running-line_text">ПОЗА ЗВИЧАНИМ</p>
+          <span class="running-line_circle"></span>
+          <p class="running-line_text">ПОЗА ЗВИЧАНИМ</p>
+          <span class="running-line_circle"></span>
+          <p class="running-line_text">ПОЗА ЗВИЧАНИМ</p>
+          <span class="running-line_circle"></span>
+          <p class="running-line_text">ПОЗА ЗВИЧАНИМ</p>
+          <span class="running-line_circle"></span>
+          <p class="running-line_text">ПОЗА ЗВИЧАНИМ</p>
+          <span class="running-line_circle"></span>
+          <p class="running-line_text">ПОЗА ЗВИЧАНИМ</p>
+          <span class="running-line_circle"></span>
+          <p class="running-line_text">ПОЗА ЗВИЧАНИМ</p>
+          <span class="running-line_circle"></span>
+        </div>
+        <div class="running-line_wrapper">
+          <p class="running-line_text">ПОЗА ЗВИЧАНИМ</p>
+          <span class="running-line_circle"></span>
+          <p class="running-line_text">ПОЗА ЗВИЧАНИМ</p>
+          <span class="running-line_circle"></span>
+          <p class="running-line_text">ПОЗА ЗВИЧАНИМ</p>
+          <span class="running-line_circle"></span>
+          <p class="running-line_text">ПОЗА ЗВИЧАНИМ</p>
+          <span class="running-line_circle"></span>
+          <p class="running-line_text">ПОЗА ЗВИЧАНИМ</p>
+          <span class="running-line_circle"></span>
+          <p class="running-line_text">ПОЗА ЗВИЧАНИМ</p>
+          <span class="running-line_circle"></span>
+          <p class="running-line_text">ПОЗА ЗВИЧАНИМ</p>
+          <span class="running-line_circle"></span>
+          <p class="running-line_text">ПОЗА ЗВИЧАНИМ</p>
+          <span class="running-line_circle"></span>
+        </div>
+      </div>
+    </section>
+    <section class="numbers" id="numbers"></section>
+    <section class="solutions" id="solutions"></section>
+    <section class="process" id="process"></section>
+    <section class="reviews" id="reviews"></section>
+    <section class="ready"></section>
+    <section class="team"></section>
+    <section class="sub" id="sub"></section>
+
+    <footer data-aos="fade-up"></footer>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+      var submitButton = document.getElementById('submit_form');
+      var form = document.getElementById('email_form');
+      form.addEventListener('submit', function (e) {
+        setTimeout(function () {
+          submitButton.value = 'Sending...';
+          submitButton.disabled = true;
+        }, 1);
+        setTimeout(() => {
+          window.location.href = 'thankyou.html';
+        }, 1000);
+      });
+    </script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <!-- Swiper JS -->
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper('.mySwiper', {
+        slidesOffsetAfter: 100,
+        slidesOffsetBefore: 150,
+        slidesPerView: 4.7,
+        navigation: {
+          nextEl: '.solutions-button-next',
+          prevEl: '.solutions-button-prev',
+          disabledClass: 'disabled_swiper_button',
+        },
+        breakpoints: {
+          // when window width is >= 320px
+          320: {
+            slidesPerView: 1.3,
+            spaceBetween: 12,
+            slideToClickedSlide: true,
+            slidesOffsetBefore: 20,
+            slidesOffsetAfter: 20,
+          },
+          755: {
+            slidesPerView: 2.6,
+            spaceBetween: 12,
+            slideToClickedSlide: true,
+            slidesOffsetBefore: 20,
+            slidesOffsetAfter: 20,
+          },
+          // when window width is >= 480px
+          1100: {
+            slidesPerView: 3.6,
+            spaceBetween: 12,
+            slideToClickedSlide: true,
+            slidesOffsetBefore: 100,
+            slidesOffsetAfter: 100,
+          },
+          // when window width is >= 640px
+          1510: {
+            slidesPerView: 4.7,
+            spaceBetween: 12,
+            slideToClickedSlide: true,
+            slidesOffsetBefore: 150,
+            slidesOffsetAfter: 50,
+          },
+          1800: {
+            slidesPerView: 4.5,
+            spaceBetween: 12,
+            slideToClickedSlide: true,
+            slidesOffsetBefore: 150,
+            slidesOffsetAfter: 50,
+          },
+        },
+      });
+    </script>
+    <script>
+      var swiper = new Swiper('.mySwiper1', {
+        slidesOffsetAfter: 100,
+        slidesOffsetBefore: 150,
+        slidesPerView: 4.7,
+        navigation: {
+          nextEl: '.reviews_button-next',
+          prevEl: '.reviews_button-prev',
+          disabledClass: 'disabled_swiper_button',
+        },
+        breakpoints: {
+          // when window width is >= 320px
+          320: {
+            slidesPerView: 1.25,
+            spaceBetween: 12,
+            slideToClickedSlide: true,
+            slidesOffsetBefore: 20,
+            slidesOffsetAfter: 20,
+          },
+          755: {
+            slidesPerView: 2.6,
+            spaceBetween: 12,
+            slideToClickedSlide: true,
+            slidesOffsetBefore: 20,
+            slidesOffsetAfter: 20,
+          },
+          // when window width is >= 480px
+          1100: {
+            slidesPerView: 3.6,
+            spaceBetween: 12,
+            slideToClickedSlide: true,
+            slidesOffsetBefore: 100,
+            slidesOffsetAfter: 100,
+          },
+          // when window width is >= 640px
+          1510: {
+            slidesPerView: 4,
+            spaceBetween: 12,
+            slideToClickedSlide: true,
+            slidesOffsetBefore: 0,
+            slidesOffsetAfter: 0,
+          },
+        },
+      });
+    </script>
+    <script>
+      var swiper = new Swiper('.mySwiper3', {
+        // slidesOffsetAfter: 0,
+        // slidesOffsetBefore: 0,
+        // slidesPerView: 4.2,
+        navigation: {
+          nextEl: '.team_button-next',
+          prevEl: '.team_button-prev',
+          disabledClass: 'disabled_swiper_button',
+        },
+        observer: true,
+        observeParents: true,
+        breakpoints: {
+          // when window width is >= 320px
+          320: {
+            slidesPerView: 1.3,
+            spaceBetween: 12,
+            slideToClickedSlide: true,
+            slidesOffsetBefore: 20,
+            slidesOffsetAfter: 20,
+          },
+          755: {
+            slidesPerView: 2.6,
+            spaceBetween: 12,
+            slideToClickedSlide: true,
+            slidesOffsetBefore: 20,
+            slidesOffsetAfter: 20,
+          },
+          // when window width is >= 480px
+          1100: {
+            slidesPerView: 3.6,
+            spaceBetween: 12,
+            slideToClickedSlide: true,
+            slidesOffsetBefore: 100,
+            slidesOffsetAfter: 100,
+          },
+          // when window width is >= 640px
+          1510: {
+            slidesPerView: 4.2,
+            spaceBetween: 12,
+            slideToClickedSlide: true,
+            slidesOffsetBefore: 150,
+            slidesOffsetAfter: 100,
+          },
+          1650: {
+            slidesPerView: 4.2,
+            spaceBetween: 12,
+            slideToClickedSlide: true,
+            slidesOffsetBefore: 150,
+            slidesOffsetAfter: 50,
+          },
+          1800: {
+            slidesPerView: 4.2,
+            spaceBetween: 12,
+            slideToClickedSlide: true,
+            slidesOffsetBefore: 150,
+            slidesOffsetAfter: -70,
+          },
+        },
+      });
+    </script>
+    <!-- Initialize Swiper -->
+  </body>
+  <script>
+    $(document).ready(function () {
+      $('.modal').each(function () {
+        var src = $(this).find('iframe').attr('src');
+
+        $(this).on('click', function () {
+          $(this).find('iframe').attr('src', '');
+          $(this).find('iframe').attr('src', src);
+        });
+      });
+    });
+  </script>
+</html>
