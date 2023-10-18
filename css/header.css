@@ -96,24 +96,29 @@ header {
   cursor: pointer;
 }
 .nav_elem:hover {
-  color: #cacaca;
+  color: #d9d9d9;
   transition: 0.5s;
 }
 .nav_elem:after {
   content: '';
   position: absolute;
+
   right: 0;
+  left: 0;
+  margin: 0 auto;
   width: 0;
   height: 1.5px;
   display: block;
-  background-color: #ff8902;
+  background-color: var(--usual-decorations);
   transition: 0.5s;
   margin-top: 10px;
 }
 
 .nav_elem:hover::after {
   left: 0;
-  right: auto;
+  right: 0;
+  margin: 0 auto;
+  margin-top: 10px;
   width: 100%;
 }
 
@@ -170,7 +175,7 @@ header {
     overflow: hidden;
     top: 0;
     justify-content: flex-end;
-    background-color: rgba(17, 17, 17, 1);
+    background-color: #f5f5f5;
   }
 
   .popup.open {
@@ -188,7 +193,7 @@ header {
     }
 
     to {
-      background-color: rgbargba(17, 17, 17, 1);
+      background-color: #f5f5f5;
     }
   }
 
@@ -223,12 +228,11 @@ header {
     font-weight: 600;
     line-height: 125%;
     letter-spacing: 1px;
-    color: var(--main-text-color);
+    color: black;
   }
 
   .nav_elem_mobile:hover {
-    background-color: gray;
-    color: white;
+    color: black;
   }
 
   .popup_textblock.slidein {
@@ -270,7 +274,7 @@ header {
 
   @keyframes fadeout {
     from {
-      background-color: rgba(17, 17, 17, 1);
+      background-color: #f5f5f5;
     }
 
     to {
@@ -290,7 +294,7 @@ header {
 }
 
 .popup.close {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: #f5f5f5;
   animation-name: fadeout;
   animation-duration: 0.3s;
   animation-timing-function: linear;

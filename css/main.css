@@ -21,8 +21,7 @@
   position: absolute;
   bottom: 0;
   right: 111px;
-  width: 100%;
-  max-width: 621px;
+  height: 100%;
 }
 .main_text_img {
   position: absolute;
