@@ -8,8 +8,6 @@ header {
   transition: all 0.5s;
 }
 .active {
-  background-color: rgba(34, 34, 34, 0.5);
-  backdrop-filter: blur(10px);
   transition: all 0.5s;
 }
 .header_wrapper {
