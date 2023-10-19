@@ -1,0 +1,228 @@
+.symbol {
+  position: relative;
+  width: 100%;
+  background: linear-gradient(180deg, #ececec 0%, #fff 100%);
+  overflow: hidden;
+}
+.symbol_image {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  max-height: 774px;
+  height: 774px;
+  z-index: 2;
+}
+.symbol_wrapper {
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 150px;
+  padding-bottom: 90px;
+}
+.symbol_main_text_wrapper {
+  align-self: flex-end;
+  max-width: 1032px;
+  padding-right: 180px;
+  margin-bottom: 147px;
+}
+.symbol_title {
+  color: #000;
+
+  font-family: 'Montserrat';
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%; /* 76.8px */
+}
+.symbol_subtitle {
+  color: #000;
+  font-family: 'Montserrat';
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%;
+  margin-bottom: 80px;
+}
+.symbol_text {
+  color: #000;
+  font-family: 'Montserrat';
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 324;
+  line-height: 140%;
+}
+.symbol_items_wrapper {
+  margin-right: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 90px;
+}
+.symbol_item {
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  border-left: 1px solid #ff4a5f;
+  padding-left: 17px;
+  padding-bottom: 10px;
+}
+.symbol_item_title {
+  color: #000;
+  font-kerning: none;
+  font-variant-numeric: lining-nums proportional-nums;
+  font-family: 'Montserrat';
+  font-size: 52px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.symbol_item_subtitle {
+  color: #000;
+  font-family: 'Montserrat';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+}
+@media (max-width: 1570px) {
+  .symbol_main_text_wrapper {
+    padding-right: 0px;
+    margin-right: 100px;
+    max-width: 763px;
+  }
+  .symbol_items_wrapper {
+    margin-right: 0px;
+    margin-left: 30px;
+    gap: 80px;
+  }
+  .symbol_subtitle {
+    margin-bottom: 75px;
+  }
+}
+@media (max-width: 1410px) {
+  .symbol_main_text_wrapper {
+    max-width: 600px;
+    margin-bottom: 70px;
+  }
+  .symbol_item_title {
+    font-size: 35px;
+  }
+  .symbol_item_subtitle {
+    font-size: 12px;
+  }
+}
+@media (max-width: 1200px) {
+  .symbol_main_text_wrapper {
+    margin-right: 30px;
+  }
+}
+@media (max-width: 1150px) {
+  .symbol_main_text_wrapper {
+    margin-right: 20px;
+    max-width: 500px;
+  }
+  .symbol_items_wrapper {
+    gap: 20px;
+  }
+}
+@media (max-width: 1038px) {
+  .symbol_wrapper {
+    padding-top: 50px;
+  }
+  .symbol_main_text_wrapper {
+    z-index: 10;
+    max-width: 350px;
+  }
+  .symbol_image {
+    max-height: 100%;
+    height: 100%;
+    max-width: 550px;
+  }
+  .symbol_items_wrapper {
+    margin: 0;
+  }
+}
+@media (max-width: 906px) {
+  .symbol_items_wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    width: 100%;
+    margin-top: 30px;
+    padding: 30px 20px 70px;
+    background: linear-gradient(180deg, #eee 0%, #fff 100%);
+  }
+  .symbol_image {
+    max-height: 700px;
+  }
+}
+@media (max-width: 847px) {
+  .symbol_image {
+    max-height: 100%;
+    height: auto;
+    max-width: 108%;
+    width: 108%;
+  }
+  .symbol_main_text_wrapper {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-right: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  .symbol_items_wrapper {
+    margin-top: 30%;
+  }
+
+  .symbol_title {
+    font-size: 40px;
+    max-width: 224px;
+    width: 224px;
+
+    display: block;
+    align-self: flex-end;
+  }
+  .symbol_subtitle {
+    max-width: 224px;
+    font-size: 32px;
+    display: block;
+    align-self: flex-end;
+    margin-bottom: 75%;
+  }
+  .symbol_text {
+    display: block;
+    align-self: flex-start;
+    max-width: 254px;
+    font-size: 14px;
+  }
+  .symbol {
+    background: #ececec;
+  }
+  .symbol_wrapper {
+    padding-bottom: 0px;
+  }
+}
+@media (max-width: 450px) {
+  .symbol_subtitle {
+    margin-bottom: 70%;
+  }
+  .symbol_image {
+    max-height: 100%;
+    height: auto;
+    max-width: 115%;
+    width: 115%;
+  }
+  .symbol_items_wrapper {
+    margin-top: 10%;
+  }
+}

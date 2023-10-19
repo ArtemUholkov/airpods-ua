@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
+  background: #ececec;
 }
 
 /*CSS RESET START*/
@@ -79,6 +80,7 @@ body {
   line-height: 1;
   overflow-x: hidden;
   overflow-y: scroll;
+  background: #ececec;
 }
 
 ol,
@@ -119,7 +121,7 @@ table {
 
 /*COLOR VARIABLES START*/
 :root {
-  --main-bg-color: #111111;
+  --main-bg-color: white;
   --usual-decorations: #ff4a5f;
   --main-text-color: #ffffff;
   --unusual-decor: #ff4a5f;
@@ -160,7 +162,6 @@ body {
   width: 100%;
   margin: 0 auto;
   z-index: 2;
-  background: #111;
 }
 h1 {
   position: relative;
