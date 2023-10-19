@@ -102,7 +102,6 @@ header {
 .nav_elem:after {
   content: '';
   position: absolute;
-
   right: 0;
   left: 0;
   margin: 0 auto;
@@ -121,6 +120,14 @@ header {
   margin-top: 10px;
   width: 100%;
 }
+.cart_icon {
+  transition: all 0.5s;
+}
+.cart_icon:hover {
+  cursor: pointer;
+  opacity: 0.55;
+  transition: all 0.5s;
+}
 
 @media (max-width: 1620px) {
   .header_wrapper {
@@ -133,11 +140,17 @@ header {
   }
 }
 @media (max-width: 1050px) {
+  .cart_icon {
+    height: 24px;
+  }
   .navbar {
     padding: 0;
   }
   .navbar_menu {
     display: none;
+  }
+  .header_pair {
+    gap: 41px;
   }
 
   .burger {
@@ -151,7 +164,7 @@ header {
     width: 24px;
     height: 3px;
     margin: 2.5px auto;
-    background-color: var(--main-text-color);
+    background-color: black;
     transition: 0.2s;
     border-radius: 3px;
   }
@@ -336,6 +349,8 @@ header {
   }
   .mob_button {
     display: flex;
+    background-color: var(--usual-decorations);
+    color: white;
   }
   .fly_space {
     top: 64px;
