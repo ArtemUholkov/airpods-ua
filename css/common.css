@@ -1,7 +1,6 @@
 * {
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
-  background: #ececec;
 }
 
 /*CSS RESET START*/
@@ -162,6 +161,7 @@ body {
   width: 100%;
   margin: 0 auto;
   z-index: 2;
+  background: #111;
 }
 h1 {
   position: relative;
