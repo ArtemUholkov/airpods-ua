@@ -271,3 +271,8 @@
     padding-top: 0;
   }
 }
+@media (max-width: 370px) {
+  .main_head_img {
+    right: -145px;
+  }
+}
