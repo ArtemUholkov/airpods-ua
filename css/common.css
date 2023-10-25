@@ -161,7 +161,6 @@ body {
   width: 100%;
   margin: 0 auto;
   z-index: 2;
-  background: #111;
 }
 h1 {
   position: relative;
@@ -181,17 +180,12 @@ h1 {
   padding-right: 150px;
 }
 h2 {
-  padding: 12px 32px;
-  border-radius: 33px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  color: var(--section-subtitles-color);
-  text-align: center;
-  font-size: 16px;
-  font-weight: 400;
-  text-transform: uppercase;
-  display: inline;
-  margin-bottom: 28px;
+  color: #000;
+  font-family: 'Montserrat';
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
 }
 .section_subtitle {
   color: var(--section--title-text);
