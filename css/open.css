@@ -54,6 +54,9 @@
   top: 140px;
   left: 62.5%;
 }
+.mob_open_content_wrapper {
+  display: none;
+}
 @media (max-width: 1750px) {
   .open {
     background: url('../img/open/bgimage.png') center top;
@@ -120,6 +123,7 @@
     min-height: auto;
   }
   .mob_open_content_wrapper {
+    display: block;
     height: 60px;
     max-height: 60px;
     min-height: auto;

@@ -12,15 +12,15 @@
       rel="stylesheet"
     />
     <!--FONTS-->
-    <!-- Slider-swiper -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
     <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
-    <!-- Slider-swiper -->
+
+    <!-- Boostrap  -->
     <title>AirPods - Символ Інновацій та Елегантності</title>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="icon" type="image/x-icon" href="img/global/favicon.png" />
@@ -302,25 +302,114 @@
       </div>
     </section>
     <section class="reviews" id="reviews"></section>
-    <section class="ready"></section>
+    <section class="questions">
+      <div class="questions_wrapper">
+        <div class="questions_info_wrapper">
+          <h2 class="questions_title" data-aos="fade-up">Виникли запитання?</h2>
+          <p class="questions_info_subtitle" data-aos="fade-up">Ми завжди на зв’язку</p>
+          <div>
+            <a class="how_content_item_link questions_link" onclick="scrollToSub()"
+              >Написати <img src="img/questions/arrow-left.svg" class="how_deco_arrow" alt="arrow"
+            /></a>
+          </div>
+        </div>
+        <div class="questions_questions_wrapper">
+          <div class="accordion" id="accordionExample" data-aos="fade-up">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseOne"
+                  aria-expanded="true"
+                  aria-controls="collapseOne"
+                >
+                  Чи є накладений платіж?
+                </button>
+              </h2>
+              <div
+                id="collapseOne"
+                class="accordion-collapse collapse show"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body">
+                  Так, накладний платіж доступний при передоплаті 200₴.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseTwo"
+                  aria-expanded="false"
+                  aria-controls="collapseTwo"
+                >
+                  Який спосіб оплати?
+                </button>
+              </h2>
+              <div
+                id="collapseTwo"
+                class="accordion-collapse collapse"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body">
+                  Ми пропонуємо два способи оплати💰:<br />💳 100% передоплата на рахунок <br />📤
+                  Часткова передоплата 200 грн з можливістю накладеного платежу. ЗВЕРНІТЬ УВАГУ, що
+                  це додасть додаткову вартість 20 грн та 2% від загальної суми при отриманні на
+                  пошті 🚚.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseFour"
+                  aria-expanded="false"
+                  aria-controls="collapseFour"
+                >
+                  Чи можливе повернення товару?
+                </button>
+              </h2>
+              <div
+                id="collapseFour"
+                class="accordion-collapse collapse"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body">
+                  Повернення товару не передбачено. Проте ви можете обміняти товар на протязі 14
+                  днів у випадку дефекту, за умови, що навушники зберігли свій первісний вигляд і не
+                  мають видимих пошкоджень.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <section class="team"></section>
     <section class="sub" id="sub"></section>
 
     <footer data-aos="fade-up"></footer>
-
     <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
     <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
       crossorigin="anonymous"
     ></script>
     <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
       crossorigin="anonymous"
     ></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
