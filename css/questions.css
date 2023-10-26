@@ -1,5 +1,5 @@
 .questions {
-  background-color: #fffcf9;
+  background-color: white;
 }
 .questions_wrapper {
   padding: 150px;
@@ -54,7 +54,7 @@
 }
 
 .accordion-button {
-  font-family: 'GeneralSans';
+  font-family: 'Montserrat';
   background-color: transparent;
   color: black;
   font-size: 24px;
