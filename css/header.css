@@ -123,6 +123,28 @@ header {
 .cart_icon {
   transition: all 0.5s;
 }
+.cart_icon_wrapper {
+  position: relative;
+}
+.cart_number {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  bottom: 2px;
+  right: 0;
+  padding: 3px;
+  border-radius: 50%;
+  background-color: var(--usual-decorations);
+  font-size: 10px;
+  font-weight: 700;
+}
+.cart_number_visual {
+  transition: all 0.5s;
+  display: flex;
+}
 .cart_icon:hover {
   cursor: pointer;
   opacity: 0.55;

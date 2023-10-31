@@ -87,3 +87,13 @@ const cartCloseX = document.querySelector('.cart_close_space');
 function closeCart() {
   cartSidebar.classList.remove('open_cart');
 }
+
+const itemsButtons = document.querySelectorAll('.pods_button');
+const cartSubIcon = document.querySelector('.cart_number');
+const cartWrapper = document.querySelector('.cart');
+itemsButtons.forEach((e) => {
+  e.addEventListener('click', () => {
+    cartSubIcon.classList.add('cart_number_visual');
+    cartWrapper.classList.add('open_cart');
+  });
+});

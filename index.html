@@ -36,9 +36,38 @@
   <body>
     <section class="cart">
       <div class="cart_content_wrapper">
-        <div class="cart_close_space" onclick="closeCart()">
-          <span class="cart_close_stick"></span>
-          <span class="cart_close_stick"></span>
+        <div class="cart_info_wrapper">
+          <h2 class="cart_title">Кошик</h2>
+          <div class="cart_close_space" onclick="closeCart()">
+            <span class="cart_close_stick"></span>
+            <span class="cart_close_stick"></span>
+          </div>
+        </div>
+        <div class="cart_items_wrapper">
+          <div class="cart_item">
+            <div class="cart_item_content_wrapper">
+              <div class="cart_item_info">
+                <img src="img/pods/airpods2.png" alt="" class="cart_item_image" />
+                <div class="cart_item_text">
+                  <p class="cart_item_text_name">AirPods 3</p>
+                  <p class="cart_item_text_available">В наявності</p>
+                  <p class="cart_item_text_price">1650₴/ шт</p>
+                </div>
+              </div>
+              <img src="img/cart/bin.svg" alt="" class="cart_item_bin" />
+            </div>
+          </div>
+        </div>
+        <div class="cart_final_wrapper">
+          <div class="cart_discount_wrapper">
+            <p class="cart_discount_name">Знижка</p>
+            <p class="cart_discount_amount">0₴</p>
+          </div>
+          <div class="cart_total_wrapper">
+            <p class="cart_total_name">До оплати без доставки:</p>
+            <p class="cart_total_amount">0₴</p>
+          </div>
+          <a href="" class="main_button red_button pods_button">ОФОРМИТИ ЗАМОВЛЕННЯ</a>
         </div>
       </div>
     </section>
@@ -73,7 +102,15 @@
                 <span class="stick"></span>
               </div>
             </div>
-            <img src="img/header/cart.svg" alt="cart icon" class="cart_icon" onclick="openCart()" />
+            <div class="cart_icon_wrapper">
+              <img
+                src="img/header/cart.svg"
+                alt="cart icon"
+                class="cart_icon"
+                onclick="openCart()"
+              />
+              <span class="cart_number">1</span>
+            </div>
           </div>
         </nav>
         <div class="popup" id="popup">
@@ -143,39 +180,39 @@
 
       <div class="running-line righttoleft">
         <div class="running-line_wrapper">
-          <p class="running-line_text">ПОЗА ЗВИЧАНИМ</p>
+          <p class="running-line_text">ПОЗА ЗВИЧАЙНИМ</p>
           <span class="running-line_circle"></span>
-          <p class="running-line_text">ПОЗА ЗВИЧАНИМ</p>
+          <p class="running-line_text">ПОЗА ЗВИЧАЙНИМ</p>
           <span class="running-line_circle"></span>
-          <p class="running-line_text">ПОЗА ЗВИЧАНИМ</p>
+          <p class="running-line_text">ПОЗА ЗВИЧАЙНИМ</p>
           <span class="running-line_circle"></span>
-          <p class="running-line_text">ПОЗА ЗВИЧАНИМ</p>
+          <p class="running-line_text">ПОЗА ЗВИЧАЙНИМ</p>
           <span class="running-line_circle"></span>
-          <p class="running-line_text">ПОЗА ЗВИЧАНИМ</p>
+          <p class="running-line_text">ПОЗА ЗВИЧАЙНИМ</p>
           <span class="running-line_circle"></span>
-          <p class="running-line_text">ПОЗА ЗВИЧАНИМ</p>
+          <p class="running-line_text">ПОЗА ЗВИЧАЙНИМ</p>
           <span class="running-line_circle"></span>
-          <p class="running-line_text">ПОЗА ЗВИЧАНИМ</p>
+          <p class="running-line_text">ПОЗА ЗВИЧАЙНИМ</p>
           <span class="running-line_circle"></span>
-          <p class="running-line_text">ПОЗА ЗВИЧАНИМ</p>
+          <p class="running-line_text">ПОЗА ЗВИЧАЙНИМ</p>
           <span class="running-line_circle"></span>
         </div>
         <div class="running-line_wrapper">
-          <p class="running-line_text">ПОЗА ЗВИЧАНИМ</p>
+          <p class="running-line_text">ПОЗА ЗВИЧАЙНИМ</p>
           <span class="running-line_circle"></span>
-          <p class="running-line_text">ПОЗА ЗВИЧАНИМ</p>
+          <p class="running-line_text">ПОЗА ЗВИЧАЙНИМ</p>
           <span class="running-line_circle"></span>
-          <p class="running-line_text">ПОЗА ЗВИЧАНИМ</p>
+          <p class="running-line_text">ПОЗА ЗВИЧАЙНИМ</p>
           <span class="running-line_circle"></span>
-          <p class="running-line_text">ПОЗА ЗВИЧАНИМ</p>
+          <p class="running-line_text">ПОЗА ЗВИЧАЙНИМ</p>
           <span class="running-line_circle"></span>
-          <p class="running-line_text">ПОЗА ЗВИЧАНИМ</p>
+          <p class="running-line_text">ПОЗА ЗВИЧАЙНИМ</p>
           <span class="running-line_circle"></span>
-          <p class="running-line_text">ПОЗА ЗВИЧАНИМ</p>
+          <p class="running-line_text">ПОЗА ЗВИЧАЙНИМ</p>
           <span class="running-line_circle"></span>
-          <p class="running-line_text">ПОЗА ЗВИЧАНИМ</p>
+          <p class="running-line_text">ПОЗА ЗВИЧАЙНИМ</p>
           <span class="running-line_circle"></span>
-          <p class="running-line_text">ПОЗА ЗВИЧАНИМ</p>
+          <p class="running-line_text">ПОЗА ЗВИЧАЙНИМ</p>
           <span class="running-line_circle"></span>
         </div>
       </div>
@@ -403,6 +440,27 @@
             </div>
             <div class="swiper-slide">
               <img src="img/reviews/15.webp" alt="" class="reviews_img" />
+            </div>
+            <div class="swiper-slide">
+              <img src="img/reviews/16.webp" alt="" class="reviews_img" />
+            </div>
+            <div class="swiper-slide">
+              <img src="img/reviews/17.webp" alt="" class="reviews_img" />
+            </div>
+            <div class="swiper-slide">
+              <img src="img/reviews/18.webp" alt="" class="reviews_img" />
+            </div>
+            <div class="swiper-slide">
+              <img src="img/reviews/19.webp" alt="" class="reviews_img" />
+            </div>
+            <div class="swiper-slide">
+              <img src="img/reviews/20.webp" alt="" class="reviews_img" />
+            </div>
+            <div class="swiper-slide">
+              <img src="img/reviews/21.webp" alt="" class="reviews_img" />
+            </div>
+            <div class="swiper-slide">
+              <img src="img/reviews/22.webp" alt="" class="reviews_img" />
             </div>
           </div>
         </div>
