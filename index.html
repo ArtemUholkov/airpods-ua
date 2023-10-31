@@ -11,6 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
       integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -353,7 +354,60 @@
         <p class="open2_text open_text">горизонти <span class="open_red_text">ЗВУКУ</span></p>
       </div>
     </section>
-    <section class="reviews" id="reviews"></section>
+    <section class="reviews" id="reviews">
+      <div class="reviews_content_wrapper">
+        <h2 data-aos="fade-up" class="reviews_title">Що про нас говорять?</h2>
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="img/reviews/1.webp" alt="" class="reviews_img" />
+            </div>
+            <div class="swiper-slide">
+              <img src="img/reviews/2.webp" alt="" class="reviews_img" />
+            </div>
+            <div class="swiper-slide">
+              <img src="img/reviews/3.webp" alt="" class="reviews_img" />
+            </div>
+            <div class="swiper-slide">
+              <img src="img/reviews/4.webp" alt="" class="reviews_img" />
+            </div>
+            <div class="swiper-slide">
+              <img src="img/reviews/5.webp" alt="" class="reviews_img" />
+            </div>
+            <div class="swiper-slide">
+              <img src="img/reviews/6.webp" alt="" class="reviews_img" />
+            </div>
+            <div class="swiper-slide">
+              <img src="img/reviews/7.webp" alt="" class="reviews_img" />
+            </div>
+            <div class="swiper-slide">
+              <img src="img/reviews/8.webp" alt="" class="reviews_img" />
+            </div>
+            <div class="swiper-slide">
+              <img src="img/reviews/9.webp" alt="" class="reviews_img" />
+            </div>
+            <div class="swiper-slide">
+              <img src="img/reviews/10.webp" alt="" class="reviews_img" />
+            </div>
+            <div class="swiper-slide">
+              <img src="img/reviews/11.webp" alt="" class="reviews_img" />
+            </div>
+            <div class="swiper-slide">
+              <img src="img/reviews/12.webp" alt="" class="reviews_img" />
+            </div>
+            <div class="swiper-slide">
+              <img src="img/reviews/13.webp" alt="" class="reviews_img" />
+            </div>
+            <div class="swiper-slide">
+              <img src="img/reviews/14.webp" alt="" class="reviews_img" />
+            </div>
+            <div class="swiper-slide">
+              <img src="img/reviews/15.webp" alt="" class="reviews_img" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <section class="questions">
       <div class="questions_wrapper">
         <div class="questions_info_wrapper">
@@ -445,9 +499,6 @@
         </div>
       </div>
     </section>
-    <section class="team"></section>
-    <section class="sub" id="sub"></section>
-
     <footer>
       <div class="footer_wrapper">
         <div class="footer_content_wrapper">
@@ -496,87 +547,44 @@
     ></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js/script.js"></script>
-    <script>
-      var submitButton = document.getElementById('submit_form');
-      var form = document.getElementById('email_form');
-      form.addEventListener('submit', function (e) {
-        setTimeout(function () {
-          submitButton.value = 'Sending...';
-          submitButton.disabled = true;
-        }, 1);
-        setTimeout(() => {
-          window.location.href = 'thankyou.html';
-        }, 1000);
-      });
-    </script>
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <!-- Swiper JS -->
-    <!-- Initialize Swiper -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
       var swiper = new Swiper('.mySwiper', {
-        slidesOffsetAfter: 100,
-        slidesOffsetBefore: 150,
-        slidesPerView: 4.7,
-        navigation: {
-          nextEl: '.solutions-button-next',
-          prevEl: '.solutions-button-prev',
-          disabledClass: 'disabled_swiper_button',
+        slidesOffsetAfter: 0,
+        slidesOffsetBefore: 0,
+        slidesPerView: 4,
+        loop: true,
+        autoplay: true,
+        autoplay: {
+          delay: 1500,
         },
         breakpoints: {
           // when window width is >= 320px
           320: {
-            slidesPerView: 1.3,
-            spaceBetween: 12,
-            slideToClickedSlide: true,
-            slidesOffsetBefore: 20,
-            slidesOffsetAfter: 20,
+            slidesPerView: 1.5,
           },
           755: {
-            slidesPerView: 2.6,
-            spaceBetween: 12,
-            slideToClickedSlide: true,
-            slidesOffsetBefore: 20,
-            slidesOffsetAfter: 20,
+            slidesPerView: 2,
           },
-          // when window width is >= 480px
+
           1100: {
-            slidesPerView: 3.6,
-            spaceBetween: 12,
-            slideToClickedSlide: true,
-            slidesOffsetBefore: 100,
-            slidesOffsetAfter: 100,
+            slidesPerView: 3,
           },
-          // when window width is >= 640px
-          1510: {
-            slidesPerView: 4.7,
-            spaceBetween: 12,
-            slideToClickedSlide: true,
-            slidesOffsetBefore: 150,
-            slidesOffsetAfter: 50,
-          },
-          1800: {
-            slidesPerView: 4.5,
-            spaceBetween: 12,
-            slideToClickedSlide: true,
-            slidesOffsetBefore: 150,
-            slidesOffsetAfter: 50,
+          1500: {
+            slidesPerView: 4,
           },
         },
       });
     </script>
     <script>
-      $(function () {
-        $(window).on('scroll', function () {
-          if ($(window).scrollTop() > 50) {
-            $('.header').addClass('blur_head');
-          } else {
-            //remove the background property so it comes transparent again (defined in your css)
-            $('.header').removeClass('blur_head');
-          }
-        });
+      $(window).on('scroll', function () {
+        if ($(window).scrollTop() > 50) {
+          $('.header').addClass('blur_head');
+        } else {
+          //remove the background property so it comes transparent again (defined in your css)
+          $('.header').removeClass('blur_head');
+        }
       });
     </script>
-    <!-- Initialize Swiper -->
   </body>
 </html>
