@@ -78,6 +78,9 @@ h2 {
   font-weight: 400;
   line-height: 140%;
 }
+.pods_tems_price_wrapper {
+  display: flex;
+}
 @media (max-width: 1550px) {
   .pods_wrapper {
     padding: 90px 100px;

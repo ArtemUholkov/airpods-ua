@@ -91,9 +91,49 @@ function closeCart() {
 const itemsButtons = document.querySelectorAll('.pods_button');
 const cartSubIcon = document.querySelector('.cart_number');
 const cartWrapper = document.querySelector('.cart');
+
 itemsButtons.forEach((e) => {
-  e.addEventListener('click', () => {
+  e.addEventListener('click', (event) => {
     cartSubIcon.classList.add('cart_number_visual');
     cartWrapper.classList.add('open_cart');
+    const imageLink = event.target.parentElement.previousElementSibling.children[0].src;
+    const itemTitle = event.target.parentElement.children[0].children[0].innerHTML;
+    const itemPrice = event.target.parentElement.children[0].children[1].children[0].innerHTML;
+
+    const cartItemWrapper = document.querySelector('.cart_items_wrapper');
+    const cartItem = document.createElement(`div`);
+    cartItem.classList.add('cart_item');
+    cartItem.innerHTML = `
+      
+        <div class="cart_item_content_wrapper">
+          <div class="cart_item_info">
+            <img src="${imageLink}" alt="" class="cart_item_image" />
+            <div class="cart_item_text">
+              <p class="cart_item_text_name">${itemTitle}</p>
+              <p class="cart_item_text_available">В наявності</p>
+              <p class="cart_item_text_price">${itemPrice}₴/ шт</p>
+            </div>
+          </div>
+          <img src="img/cart/bin.svg" alt="" class="cart_item_bin" />
+        </div>
+        <div class="cart_quantity_total_wrapper">
+          <div class="cart_quantity_wrapper">
+            <span class="cart_minus">-</span>
+            <span class="cart_quantity">1</span>
+            <span class="cart_plus">+</span>
+          </div>
+          <span class="cart_item_price">${itemPrice}₴</span>
+        </div>
+      
+    `;
+    cartItemWrapper.appendChild(cartItem);
+    const cartBins = document.querySelectorAll('.cart_item_bin');
+    cartBins.forEach((e) => {
+      e.addEventListener('click', (event) => {
+        event.target.parentElement.parentElement.remove();
+      });
+    });
+    const totalPrice = document.querySelector('.cart_total_amount');
+    totalPrice.innerHTML = Number(totalPrice.innerHTML) + Number(itemPrice);
   });
 });
