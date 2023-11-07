@@ -353,7 +353,30 @@ citySelect.addEventListener('input', () => {
       });
   }, delay);
 });
-
+const warehouseMarker = document.querySelector('#warehouse');
+const courierMarker = document.querySelector('#courier');
+const adressField = document.querySelector('#address');
+const warehouseswrapper = document.querySelector('#warehouseswrapper');
+if (warehouseMarker.checked) {
+  adressField.classList.add('cart_item_display_none');
+  warehouseswrapper.classList.remove('cart_item_display_none');
+} else if (courierMarker.checked) {
+  adressField.classList.remove('cart_item_display_none');
+  warehouseswrapper.classList.add('cart_item_display_none');
+}
+function renderFormContent() {
+  const warehouseMarker = document.querySelector('#warehouse');
+  const courierMarker = document.querySelector('#courier');
+  const adressField = document.querySelector('#address');
+  const warehouseswrapper = document.querySelector('#warehouseswrapper');
+  if (warehouseMarker.checked) {
+    adressField.classList.remove('cart_item_display_none');
+    warehouseswrapper.classList.add('cart_item_display_none');
+  } else if (courierMarker.checked) {
+    adressField.classList.add('cart_item_display_none');
+    warehouseswrapper.classList.remove('cart_item_display_none');
+  }
+}
 // const formData = {
 //   apiKey: 'eb0efa8a715f3b6c7e99c866dff664bd',
 //   modelName: 'Address',
