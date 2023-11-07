@@ -285,13 +285,20 @@ citySelect.addEventListener('input', () => {
       .then((response) => response.json())
       .then((res) => {
         res.data[0].Addresses.forEach((item) => {
-          cityFinalList.push(item.Present);
+          if (citySelect.value == item.Present) {
+            cityFinalList = [];
+            return false;
+          } else {
+            cityFinalList.push(item.Present);
+          }
         }),
           console.log(cityFinalList),
           cityFinalList.forEach((elem) => {
             output += `<option value="${elem}">${elem}</option>`;
           });
+
         cityList.innerHTML = output;
+
         res.data[0].Addresses.forEach((item) => {
           if (item.Present == citySelect.value) {
             console.log(item.DeliveryCity);
