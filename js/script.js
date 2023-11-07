@@ -94,20 +94,21 @@ const cartWrapper = document.querySelector('.cart');
 const totalPrice = document.querySelector('.cart_total_amount');
 const item = document.querySelector('.cart_item');
 itemsButtons.forEach((e) => {
-  e.addEventListener('click', (event) => {
-    cartWrapper.classList.add('open_cart');
-    const imageLink = event.target.parentElement.previousElementSibling.children[0].src;
-    const itemTitle = event.target.parentElement.children[0].children[0].innerHTML;
-    const itemPrice = event.target.parentElement.children[0].children[1].children[0].innerHTML;
-    console.log(itemTitle);
-
-    if (cartWrapper.innerHTML.includes(itemTitle)) {
+  e.addEventListener(
+    'click',
+    function addItem(event) {
       cartWrapper.classList.add('open_cart');
-    } else {
-      const cartItemWrapper = document.querySelector('.cart_items_wrapper');
-      const cartItem = document.createElement(`div`);
-      cartItem.classList.add('cart_item');
-      cartItem.innerHTML = `
+      const imageLink = event.target.parentElement.previousElementSibling.children[0].src;
+      const itemTitle = event.target.parentElement.children[0].children[0].innerHTML;
+      const itemPrice = event.target.parentElement.children[0].children[1].children[0].innerHTML;
+
+      if (cartWrapper.innerHTML.includes(itemTitle)) {
+        cartWrapper.classList.add('open_cart');
+      } else {
+        const cartItemWrapper = document.querySelector('.cart_items_wrapper');
+        const cartItem = document.createElement(`div`);
+        cartItem.classList.add('cart_item');
+        cartItem.innerHTML = `
     <div class="cart_item_content_wrapper">
       <div class="cart_item_info">
         <img src="${imageLink}" alt="" class="cart_item_image" />
@@ -115,7 +116,7 @@ itemsButtons.forEach((e) => {
           <p class="cart_item_text_name">${itemTitle}</p>
           <p class="cart_item_text_available">В наявності</p>
           <div class="total_amount_wrapper">
-            <p class="cart_item_text_price"><span>${itemPrice}</span><span class="grn cart_item_text_price">₴</span></p>
+            <p class="cart_item_text_price"><span>${itemPrice}</span><span class="grn cart_item_text_price">₴/шт</span></p>
           </div>
         </div>
       </div>
@@ -132,19 +133,21 @@ itemsButtons.forEach((e) => {
       
     </div>
 `;
-      cartItemWrapper.appendChild(cartItem);
+        cartItemWrapper.appendChild(cartItem);
 
-      const totalPrice = document.querySelector('.cart_total_amount');
+        const totalPrice = document.querySelector('.cart_total_amount');
 
-      totalPrice.innerHTML = Number(totalPrice.innerHTML) + Number(itemPrice);
+        totalPrice.innerHTML = Number(totalPrice.innerHTML) + Number(itemPrice);
 
-      const item = document.querySelector('.cart_item');
-      cartSubIcon.innerHTML = Number(cartSubIcon.innerHTML) + 1;
-      cartItemWrapper.contains(item)
-        ? cartSubIcon.classList.add('cart_number_visual')
-        : cartSubIcon.classList.remove('cart_number_visual');
-    }
-  });
+        const item = document.querySelector('.cart_item');
+        cartSubIcon.innerHTML = Number(cartSubIcon.innerHTML) + 1;
+        cartItemWrapper.contains(item)
+          ? cartSubIcon.classList.add('cart_number_visual')
+          : cartSubIcon.classList.remove('cart_number_visual');
+      }
+    },
+    true,
+  );
 });
 const wrapper = document.querySelector('.cart_items_wrapper');
 
@@ -194,24 +197,179 @@ wrapper.addEventListener('click', function (e) {
       : cartSubIcon.classList.remove('cart_number_visual');
   }
 });
+function openCartForm() {
+  if (cartFormWrapper.classList.contains('open_cart')) {
+    cartFormWrapper.classList.remove('open_cart');
+  } else {
+    cartFormWrapper.classList.add('open_cart');
+  }
+}
 
-// const minuses = document.querySelectorAll('.cart_minus');
-// const pluses = document.querySelectorAll('.cart_plus');
-// const quantities = document.querySelectorAll('.cart_quantity');
-// console.log(minuses, pluses, quantities);
+const allItems = document.querySelector('.cart_items_wrapper');
+const buttonInCart = document.querySelector('#button_in_cart');
+const cartFormWrapper = document.querySelector('.cart_form');
+const cartBins = document.querySelectorAll('.cart_item_bin');
 
-// pluses.forEach((e) => {
-//   e.addEventListener('click', (event) => {
-//     console.log(event.target.parentElement.children[1].innerHTML);
+buttonInCart.addEventListener('click', (event) => {
+  event.preventDefault();
+  const cartItems = document.querySelectorAll('.cart_item');
+  const cartBins = document.querySelectorAll('.cart_item_bin');
+  const itemsInfo = document.querySelectorAll('.cart_quantity_total_wrapper');
+  const itemsimages = document.querySelectorAll('.cart_item_image');
+  const itemTitles = document.querySelectorAll('.cart_item_text_name');
+  const cartitemsText = document.querySelectorAll('.cart_item_text_available');
+  const cartItemsPrice = document.querySelectorAll('.cart_item_text_price');
+  const cartTitle = document.querySelector('.cart_title');
+  const formWrapper = document.querySelector('.form_wrapper');
+  cartItems.forEach((e) => {
+    e.classList.add('cart_item_afterclick');
+  });
+  cartBins.forEach((e) => {
+    e.classList.add('cart_item_display_none');
+  });
+  itemsInfo.forEach((e) => {
+    e.classList.add('cart_item_display_none');
+  });
+  itemsimages.forEach((e) => {
+    e.classList.add('cart_item_image_afterclick');
+  });
+  itemTitles.forEach((e) => {
+    e.classList.add('cart_item_text_name_afterclick');
+  });
+  cartitemsText.forEach((e) => {
+    e.classList.add('cart_item_text_available_afterclick');
+  });
+  cartItemsPrice.forEach((e) => {
+    e.classList.add('cart_item_text_price_afterclick');
+  });
+  cartTitle.innerHTML = 'Оформлення замовлення';
+  cartTitle.classList.add('cart_title_afterclick');
+  itemsButtons.forEach((e) => {
+    e.classList.add('no-click');
+  });
+  formWrapper.classList.add('make_visual');
+});
+
+const citySelect = document.querySelector('.cityselect');
+const cityList = document.querySelector('.city_list');
+let cityFinalList = [];
+let output = '';
+const delay = 700;
+let timer;
+
+citySelect.addEventListener('input', () => {
+  clearTimeout(timer);
+  timer = setTimeout(() => {
+    console.log(citySelect.value);
+    cityFinalList = [];
+    output = '';
+    const formData = {
+      apiKey: 'eb0efa8a715f3b6c7e99c866dff664bd',
+      modelName: 'Address',
+      calledMethod: 'searchSettlements',
+      methodProperties: {
+        CityName: `${citySelect.value}`,
+        Limit: '150',
+        Page: '1',
+      },
+    };
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    };
+    const url = 'https://api.novaposhta.ua/v2.0/json/';
+    fetch(url, options)
+      .then((response) => response.json())
+      .then((res) => {
+        res.data[0].Addresses.forEach((item) => {
+          cityFinalList.push(item.Present);
+        }),
+          console.log(cityFinalList),
+          cityFinalList.forEach((elem) => {
+            output += `<option value="${elem}">${elem}</option>`;
+          });
+        cityList.innerHTML = output;
+        res.data[0].Addresses.forEach((item) => {
+          if (item.Present == citySelect.value) {
+            console.log(item.DeliveryCity);
+            const postSelect = document.querySelector('.postselect');
+            const postList = document.querySelector('.post_list');
+            let output = '';
+            postSelect.addEventListener('input', () => {
+              let timerw;
+              let delayw = 700;
+              clearTimeout(timerw);
+              timerw = setTimeout(() => {
+                // ЗАПИТ
+                const formData = {
+                  apiKey: 'eb0efa8a715f3b6c7e99c866dff664bd',
+                  modelName: 'Address',
+                  calledMethod: 'getWarehouses',
+                  methodProperties: {
+                    CityRef: `${item.DeliveryCity}`,
+                    Limit: '2000',
+                    Page: '1',
+                  },
+                };
+                const options = {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify(formData),
+                };
+                const warehouses = [];
+                let outputw = '';
+                const url = 'https://api.novaposhta.ua/v2.0/json/';
+                fetch(url, options)
+                  .then((response) => response.json())
+                  .then((res) => {
+                    console.log(res);
+                    res.data.forEach((elem) => {
+                      warehouses.push(elem.Description.replace(/"/g, ''));
+                    });
+                    warehouses.forEach((item) => {
+                      outputw += `<option value="${item}">${item}</option>`;
+                    });
+                    postList.innerHTML = outputw;
+                  });
+                // ЗАПИТ
+              }, delayw);
+            });
+          }
+        });
+      });
+  }, delay);
+});
+
+// const formData = {
+//   apiKey: 'eb0efa8a715f3b6c7e99c866dff664bd',
+//   modelName: 'Address',
+//   calledMethod: 'searchSettlements',
+//   methodProperties: {
+//     CityName: `Львів`,
+//     Limit: '150',
+//     Page: '1',
+//   },
+// };
+// const options = {
+//   method: 'POST',
+//   headers: {
+//     'Content-Type': 'application/json',
+//   },
+//   body: JSON.stringify(formData),
+// };
+// const url = 'https://api.novaposhta.ua/v2.0/json/';
+// fetch(url, options)
+//   .then((response) => response.json())
+//   .then((res) => {
+//     console.log(res);
+//     res.data[0].Addresses.forEach((item) => {
+//       if (item.Present == citySelect.value) {
+//         console.log(item.DeliveryCity);
+//       }
+//     });
 //   });
-// });
-
-// cartBins.forEach((e, i) => {
-//   e.addEventListener('click', (event) => {
-//     event.target.parentElement.parentElement.remove();
-//     const item = document.querySelector('.cart_item');
-//     cartItemWrapper.contains(item)
-//       ? cartSubIcon.classList.add('cart_number_visual')
-//       : cartSubIcon.classList.remove('cart_number_visual');
-//   });
-// });

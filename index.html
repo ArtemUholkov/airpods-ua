@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!--FONTS-->
+    <script src="js/jquery-3.7.1.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -18,14 +19,14 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <!--FONTS-->
-
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
+
+    <!--FONTS-->
 
     <!-- Boostrap  -->
     <title>AirPods - Символ Інновацій та Елегантності</title>
@@ -44,6 +45,45 @@
           </div>
         </div>
         <div class="cart_items_wrapper"></div>
+        <div class="form_wrapper">
+          <span class="form_title_text"
+            >Контактні дані<span class="form_title_text_star"> *</span></span
+          >
+          <form action="https://postmail.invotes.com/send" method="post" id="email_form">
+            <div class="input-container" data-aos="fade-up" data-aos-duration="800">
+              <input required type="text" name="Subject" />
+              <label>Ім'я</label>
+            </div>
+
+            <div class="input-container" data-aos="fade-up" data-aos-duration="800">
+              <input required type="text" name="text" />
+              <label>Прізвище</label>
+            </div>
+            <div class="input-container" data-aos="fade-up" data-aos-duration="800">
+              <input required type="tel" name="extra_phone_number" />
+              <label>Телефон</label>
+            </div>
+            <div class="input-container" data-aos="fade-up" data-aos-duration="800">
+              <input required type="text" name="text" />
+              <label>Коментар</label>
+            </div>
+
+            <div class="input-container" data-aos="fade-up" data-aos-duration="800">
+              <input required type="text" list="cities" class="cityselect" />
+              <label>Населений пункт</label>
+              <datalist id="cities" class="city_list"> </datalist>
+            </div>
+            <div class="input-container" data-aos="fade-up" data-aos-duration="800">
+              <input required type="text" list="warehouses" class="postselect" />
+              <label>Відділення/поштомат</label>
+              <datalist class="post_list" id="warehouses" name="warehouses"> </datalist>
+            </div>
+            <input type="hidden" name="access_token" value="" />
+
+            <input type="hidden" name="success_url" value="succ" />
+            <input type="hidden" name="error_url" value="err" />
+          </form>
+        </div>
         <div class="cart_final_wrapper">
           <div class="cart_discount_wrapper">
             <p class="cart_discount_name">Знижка</p>
@@ -56,10 +96,13 @@
               <span class="grn">₴</span>
             </div>
           </div>
-          <a href="" class="main_button red_button pods_button cart_button">ОФОРМИТИ ЗАМОВЛЕННЯ</a>
+          <a href="" id="button_in_cart" class="main_button red_button pods_button cart_button"
+            >ОФОРМИТИ ЗАМОВЛЕННЯ</a
+          >
         </div>
       </div>
     </section>
+
     <header class="header">
       <div class="header_wrapper mycontainer">
         <nav class="navbar">
@@ -91,13 +134,8 @@
                 <span class="stick"></span>
               </div>
             </div>
-            <div class="cart_icon_wrapper">
-              <img
-                src="img/header/cart.svg"
-                alt="cart icon"
-                class="cart_icon"
-                onclick="openCart()"
-              />
+            <div class="cart_icon_wrapper" onclick="openCart()">
+              <img src="img/header/cart.svg" alt="cart icon" class="cart_icon" />
               <span class="cart_number">0</span>
             </div>
           </div>
@@ -322,7 +360,7 @@
             </div>
             <div class="pods_items_text_wrapper">
               <div class="pods_title_price_wrap">
-                <p class="pods_item_text_title">AirPods pro</p>
+                <p class="pods_item_text_title">AіrPods pro</p>
                 <div class="pods_tems_price_wrapper">
                   <p class="pods_item_text_price">1950</p>
                   <span class="pods_item_text_price">₴</span>
