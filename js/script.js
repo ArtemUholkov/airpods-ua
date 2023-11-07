@@ -254,8 +254,9 @@ const citySelect = document.querySelector('.cityselect');
 const cityList = document.querySelector('.city_list');
 let cityFinalList = [];
 let output = '';
-const delay = 700;
+const delay = 400;
 let timer;
+let delivery;
 
 citySelect.addEventListener('input', () => {
   clearTimeout(timer);
@@ -284,69 +285,70 @@ citySelect.addEventListener('input', () => {
     fetch(url, options)
       .then((response) => response.json())
       .then((res) => {
-        res.data[0].Addresses.forEach((item) => {
-          if (citySelect.value == item.Present) {
-            cityFinalList = [];
+        for (let i = 0; i < res.data[0].Addresses.length; i++) {
+          if (citySelect.value == res.data[0].Addresses[i].Present) {
+            delivery = res.data[0].Addresses[i].DeliveryCity;
+            console.log(delivery);
             return false;
           } else {
-            cityFinalList.push(item.Present);
+            cityFinalList.push(res.data[0].Addresses[i].Present);
           }
-        }),
-          console.log(cityFinalList),
+        }
+        console.log(cityFinalList),
           cityFinalList.forEach((elem) => {
             output += `<option value="${elem}">${elem}</option>`;
           });
 
         cityList.innerHTML = output;
 
-        res.data[0].Addresses.forEach((item) => {
-          if (item.Present == citySelect.value) {
-            console.log(item.DeliveryCity);
-            const postSelect = document.querySelector('.postselect');
-            const postList = document.querySelector('.post_list');
-            let output = '';
-            postSelect.addEventListener('input', () => {
-              let timerw;
-              let delayw = 700;
-              clearTimeout(timerw);
-              timerw = setTimeout(() => {
-                // ЗАПИТ
-                const formData = {
-                  apiKey: 'eb0efa8a715f3b6c7e99c866dff664bd',
-                  modelName: 'Address',
-                  calledMethod: 'getWarehouses',
-                  methodProperties: {
-                    CityRef: `${item.DeliveryCity}`,
-                    Limit: '2000',
-                    Page: '1',
-                  },
-                };
-                const options = {
-                  method: 'POST',
-                  headers: {
-                    'Content-Type': 'application/json',
-                  },
-                  body: JSON.stringify(formData),
-                };
-                const warehouses = [];
-                let outputw = '';
-                const url = 'https://api.novaposhta.ua/v2.0/json/';
-                fetch(url, options)
-                  .then((response) => response.json())
-                  .then((res) => {
-                    console.log(res);
-                    res.data.forEach((elem) => {
-                      warehouses.push(elem.Description.replace(/"/g, ''));
-                    });
-                    warehouses.forEach((item) => {
-                      outputw += `<option value="${item}">${item}</option>`;
-                    });
-                    postList.innerHTML = outputw;
-                  });
-                // ЗАПИТ
-              }, delayw);
-            });
-          }
+        const postSelect = document.querySelector('.postselect');
+        const postList = document.querySelector('.post_list');
+
+        postSelect.addEventListener('input', () => {
+          let timerw;
+          let delayw = 400;
+          clearTimeout(timerw);
+          timerw = setTimeout(() => {
+            // ЗАПИТ
+            const formData = {
+              apiKey: 'eb0efa8a715f3b6c7e99c866dff664bd',
+              modelName: 'Address',
+              calledMethod: 'getWarehouses',
+              methodProperties: {
+                CityRef: `${delivery}`,
+                Limit: '2000',
+                Page: '1',
+              },
+            };
+            const options = {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(formData),
+            };
+            let warehouses = [];
+            let outputw = '';
+            const url = 'https://api.novaposhta.ua/v2.0/json/';
+            fetch(url, options)
+              .then((response) => response.json())
+              .then((res) => {
+                console.log(res);
+                for (j = 0; j < res.data.length; j++) {
+                  if (res.data[j].Description.replace(/"/g, '') == postSelect.value) {
+                    warehouses = [];
+                    break;
+                  } else {
+                    warehouses.push(res.data[j].Description.replace(/"/g, ''));
+                  }
+                }
+                warehouses.forEach((item) => {
+                  outputw += `<option value="${item}">${item}</option>`;
+                });
+                postList.innerHTML = outputw;
+              });
+            // ЗАПИТ
+          }, delayw);
         });
       });
   }, delay);
