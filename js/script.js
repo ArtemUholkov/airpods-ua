@@ -53,14 +53,14 @@ function burgerHandler(e) {
   burger.classList.toggle('active');
 }
 
-function scrollToNumbers() {
-  document.querySelector('#numbers').scrollIntoView(true);
+function scrollToPods() {
+  document.querySelector('#pods').scrollIntoView(true);
 }
 function scrollToSolutions() {
   document.querySelector('#solutions').scrollIntoView(true);
 }
-function scrollToProcess() {
-  document.querySelector('#process').scrollIntoView(true);
+function scrollToFAQ() {
+  document.querySelector('#faq').scrollIntoView(true);
 }
 function scrollToReviews() {
   document.querySelector('#reviews').scrollIntoView(true);

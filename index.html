@@ -152,16 +152,16 @@
             </a>
 
             <ul class="navbar_menu">
-              <li><p class="nav_elem" href="" onclick="scrollToNumbers()">Продукція</p></li>
-              <li><p class="nav_elem" href="#" onclick="scrollToSolutions()">Ціна</p></li>
-              <li><p class="nav_elem" href="#" onclick="scrollToProcess()">Відгуки</p></li>
-              <li><p class="nav_elem" href="#" onclick="scrollToReviews()">FAQs</p></li>
-              <li><p class="nav_elem" href="#" onclick="scrollToTeam()">Контакти</p></li>
+              <li><p class="nav_elem" href="" onclick="scrollToPods()">Продукція</p></li>
+              <li><p class="nav_elem" href="#" onclick="scrollToPods()">Ціна</p></li>
+              <li><p class="nav_elem" href="#" onclick="scrollToReviews()">Відгуки</p></li>
+              <li><p class="nav_elem" href="#" onclick="scrollToFAQ()">FAQs</p></li>
+              <li><p class="nav_elem" href="#" onclick="scrollToFAQ()">Контакти</p></li>
             </ul>
           </div>
           <div class="header_pair">
             <div class="header_button_pair">
-              <a href="#contacts" class="main_button" onclick="scrollToSub()"
+              <a href="#contacts" class="main_button" onclick="scrollToPods()"
                 >Обери найкраще
                 <img class="arrow_icon" src="img/global/icon-arrow-black.png" alt="icon"
               /></a>
@@ -182,22 +182,22 @@
         <div class="popup" id="popup">
           <div class="popup_textblock" id="popupSlide">
             <ul class="navbar_menu_mobile">
-              <li><p class="nav_elem_mobile" href="" onclick="scrollToNumbers()">Продукція</p></li>
+              <li><p class="nav_elem_mobile" href="" onclick="scrollToPods()">Продукція</p></li>
               <li>
-                <p class="nav_elem_mobile" href="" onclick="scrollToSolutions()">Ціна</p>
+                <p class="nav_elem_mobile" href="" onclick="scrollToPods()">Ціна</p>
               </li>
               <li>
-                <p class="nav_elem_mobile" href="" onclick="scrollToProcess()">Відгуки</p>
+                <p class="nav_elem_mobile" href="" onclick="scrollToReviews()">Відгуки</p>
               </li>
               <li>
-                <p class="nav_elem_mobile" href="" onclick="scrollToReviews()">FAQs</p>
+                <p class="nav_elem_mobile" href="" onclick="scrollToFAQ()">FAQs</p>
               </li>
               <li>
-                <p class="nav_elem_mobile" href="" onclick="scrollToTeam()">Контакти</p>
+                <p class="nav_elem_mobile" href="" onclick="scrollToFAQ()">Контакти</p>
               </li>
             </ul>
             <div class="header_button_pair mob_menu_buttons">
-              <a href="#contacts" class="main_button mob_button" onclick="scrollToSub()"
+              <a href="#contacts" class="main_button mob_button" onclick="scrollToPods()"
                 >ОБЕРИ НАЙКРАЩЕ <img class="arrow_icon" src="img/global/icon_arrow.svg" alt="icon"
               /></a>
             </div>
@@ -236,10 +236,10 @@
         <p class="main_text_2" data-aos="fade-up" data-aos-delay="700" data-aos-duration="1000">
           все в одному
         </p>
-        <a href="#contacts" class="main_button red_button" onclick="scrollToSub()"
+        <a href="#contacts" class="main_button red_button" onclick="scrollToPods()"
           >СТАНЬ ЧАСТИНОЮ МАЙБУТНЬОГО
         </a>
-        <a href="#contacts" class="main_button red_button mobile_button" onclick="scrollToSub()"
+        <a href="#contacts" class="main_button red_button mobile_button" onclick="scrollToPods()"
           >ОБИРАЙ!
         </a>
       </div>
@@ -550,13 +550,16 @@
         </div>
       </div>
     </section>
-    <section class="questions">
+    <section class="questions" id="faq">
       <div class="questions_wrapper">
         <div class="questions_info_wrapper">
           <h2 class="questions_title" data-aos="fade-up">Виникли запитання?</h2>
           <p class="questions_info_subtitle" data-aos="fade-up">Ми завжди на зв’язку</p>
           <div>
-            <a class="how_content_item_link questions_link" onclick="scrollToSub()"
+            <a
+              class="how_content_item_link questions_link"
+              target="_blank"
+              href="https://t.me/lusuy_ears_tg"
               >Написати <img src="img/questions/arrow-left.svg" class="how_deco_arrow" alt="arrow"
             /></a>
           </div>
@@ -649,11 +652,11 @@
           </a>
           <p class="footer_mob_text">Звук, що змінює уявлення</p>
           <div class="footer_navbar">
-            <a href="" class="footer_navbar_link">Продукція</a>
-            <a href="" class="footer_navbar_link">Ціна</a
-            ><a href="" class="footer_navbar_link">Відгуки</a
-            ><a href="" class="footer_navbar_link">FAQs</a
-            ><a href="" class="footer_navbar_link">Контакти</a>
+            <p class="footer_navbar_link" onclick="scrollToPods()">Продукція</p>
+            <p class="footer_navbar_link" onclick="scrollToPods()">Ціна</p>
+            <p class="footer_navbar_link" onclick="scrollToReviews()">Відгуки</p>
+            <p class="footer_navbar_link" onclick="scrollToFAQ()">FAQs</p>
+            <p class="footer_navbar_link" onclick="scrollToFAQ()">Контакти</p>
           </div>
           <div class="footer_links">
             <a
