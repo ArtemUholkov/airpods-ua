@@ -154,6 +154,7 @@ html {
   transition: all 0.5s;
   text-decoration: none;
   color: rgb(36, 36, 36);
+  cursor: pointer;
 }
 body {
   position: relative;

@@ -81,6 +81,9 @@ h2 {
 .pods_tems_price_wrapper {
   display: flex;
 }
+.pods_button:hover {
+  color: var(--usual-decorations);
+}
 @media (max-width: 1550px) {
   .pods_wrapper {
     padding: 90px 100px;

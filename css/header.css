@@ -89,14 +89,15 @@ header {
   position: relative;
   text-decoration: none;
   font-size: 14px;
-  color: var(--main-text-color);
+  color: black;
+  font-weight: 600;
   letter-spacing: 0.2px;
   border-radius: 15px;
   transition: 0.5s;
   cursor: pointer;
 }
 .nav_elem:hover {
-  color: #d9d9d9;
+  color: #545454;
   transition: 0.5s;
 }
 .nav_elem:after {

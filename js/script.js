@@ -75,14 +75,6 @@ function scrollToSub() {
 const cartIcon = document.querySelector('.cart_icon');
 const cartSidebar = document.querySelector('.cart');
 
-function openCart() {
-  if (cartSidebar.classList.contains('open_cart')) {
-    cartSidebar.classList.remove('open_cart');
-  } else {
-    cartSidebar.classList.add('open_cart');
-  }
-}
-
 const cartCloseX = document.querySelector('.cart_close_space');
 function closeCart() {
   cartSidebar.classList.remove('open_cart');
@@ -97,13 +89,13 @@ itemsButtons.forEach((e) => {
   e.addEventListener(
     'click',
     function addItem(event) {
-      cartWrapper.classList.add('open_cart');
+      openCart();
       const imageLink = event.target.parentElement.previousElementSibling.children[0].src;
       const itemTitle = event.target.parentElement.children[0].children[0].innerHTML;
       const itemPrice = event.target.parentElement.children[0].children[1].children[0].innerHTML;
 
       if (cartWrapper.innerHTML.includes(itemTitle)) {
-        cartWrapper.classList.add('open_cart');
+        openCart();
       } else {
         const cartItemWrapper = document.querySelector('.cart_items_wrapper');
         const cartItem = document.createElement(`div`);
@@ -149,6 +141,7 @@ itemsButtons.forEach((e) => {
     true,
   );
 });
+
 const wrapper = document.querySelector('.cart_items_wrapper');
 
 wrapper.addEventListener('click', function (e) {
@@ -203,6 +196,21 @@ function openCartForm() {
   } else {
     cartFormWrapper.classList.add('open_cart');
   }
+}
+function openCart() {
+  cartSidebar.classList.add('open_cart');
+  body.addEventListener('click', (e) => {
+    if (
+      e.target !== cartSidebar &&
+      e.target !== cartIcon &&
+      !e.target.classList.contains('no-touch')
+    ) {
+      cartSidebar.classList.remove('open_cart');
+    }
+  });
+  cartSidebar.addEventListener('click', (e) => {
+    e.stopPropagation();
+  });
 }
 
 const allItems = document.querySelector('.cart_items_wrapper');
@@ -306,7 +314,7 @@ citySelect.addEventListener('input', () => {
 
         postSelect.addEventListener('input', () => {
           let timerw;
-          let delayw = 400;
+          let delayw = 200;
           clearTimeout(timerw);
           timerw = setTimeout(() => {
             // ЗАПИТ
