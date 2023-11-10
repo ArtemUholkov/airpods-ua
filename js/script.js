@@ -217,6 +217,7 @@ const allItems = document.querySelector('.cart_items_wrapper');
 const buttonInCart = document.querySelector('#button_in_cart');
 const cartFormWrapper = document.querySelector('.cart_form');
 const cartBins = document.querySelectorAll('.cart_item_bin');
+const backArrow = document.querySelector('.cart_back_icon');
 
 buttonInCart.addEventListener('click', (event) => {
   event.preventDefault();
@@ -233,7 +234,9 @@ buttonInCart.addEventListener('click', (event) => {
   const orderForm = document.querySelector('.order_form');
   const orderFormButton = document.querySelector('.form_button');
   const cartTotalWrapper = document.querySelector('.cart_total_wrapper');
+  const whatTheyBuy = document.querySelector('.what_they_buy');
 
+  let fullRow = [];
   cartItems.forEach((e) => {
     e.classList.add('cart_item_afterclick');
   });
@@ -266,6 +269,69 @@ buttonInCart.addEventListener('click', (event) => {
   orderForm.appendChild(orderFormButton);
   cartTotalWrapper.classList.add('cart_total_wrapper_cart');
   finalWrapper.classList.add('m-top');
+  backArrow.classList.remove('hide_form_elem');
+
+  cartItems.forEach((elem) => {
+    const finTitle = elem.querySelector('.cart_item_text_name').innerHTML;
+    const finQuantity = elem.querySelector('.cart_quantity').innerHTML;
+
+    // console.log(`${finTitle}: ${finQuantity}шт`);
+    fullRow += ` ${finTitle}: ${finQuantity}шт `;
+    whatTheyBuy.value = fullRow;
+    console.log(fullRow, whatTheyBuy.value);
+  });
+});
+
+backArrow.addEventListener('click', (event) => {
+  event.preventDefault();
+  const cartItems = document.querySelectorAll('.cart_item');
+  const cartBins = document.querySelectorAll('.cart_item_bin');
+  const itemsInfo = document.querySelectorAll('.cart_quantity_total_wrapper');
+  const itemsimages = document.querySelectorAll('.cart_item_image');
+  const itemTitles = document.querySelectorAll('.cart_item_text_name');
+  const cartitemsText = document.querySelectorAll('.cart_item_text_available');
+  const cartItemsPrice = document.querySelectorAll('.cart_item_text_price');
+  const cartTitle = document.querySelector('.cart_title');
+  const formWrapper = document.querySelector('.form_wrapper');
+  const finalWrapper = document.querySelector('.cart_final_wrapper');
+  const orderForm = document.querySelector('.order_form');
+  const orderFormButton = document.querySelector('.form_button');
+  const cartTotalWrapper = document.querySelector('.cart_total_wrapper');
+  const whatTheyBuy = document.querySelector('.what_they_buy');
+  const cartWrapper = document.querySelector('.cart_content_wrapper');
+
+  cartItems.forEach((e) => {
+    e.classList.remove('cart_item_afterclick');
+  });
+  cartBins.forEach((e) => {
+    e.classList.remove('cart_item_display_none');
+  });
+  itemsInfo.forEach((e) => {
+    e.classList.remove('cart_item_display_none');
+  });
+  itemsimages.forEach((e) => {
+    e.classList.remove('cart_item_image_afterclick');
+  });
+  itemTitles.forEach((e) => {
+    e.classList.remove('cart_item_text_name_afterclick');
+  });
+  cartitemsText.forEach((e) => {
+    e.classList.remove('cart_item_text_available_afterclick');
+  });
+  cartItemsPrice.forEach((e) => {
+    e.classList.remove('cart_item_text_price_afterclick');
+  });
+  cartTitle.innerHTML = 'Кошик';
+  cartTitle.classList.remove('cart_title_afterclick');
+  itemsButtons.forEach((e) => {
+    e.classList.remove('no-click');
+  });
+  formWrapper.classList.remove('make_visual');
+  buttonInCart.classList.remove('cart_item_display_none');
+  cartWrapper.appendChild(finalWrapper);
+  cartTotalWrapper.classList.remove('cart_total_wrapper_cart');
+  finalWrapper.classList.remove('m-top');
+  backArrow.classList.add('hide_form_elem');
 });
 
 const citySelect = document.querySelector('.cityselect');

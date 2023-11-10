@@ -454,7 +454,24 @@ input[type='email']:valid ~ label {
 .m-top {
   margin-top: 0;
 }
-
+.hide_form_elem {
+  display: none;
+}
+.cart_arrow {
+  height: 30px;
+  margin-top: 5px;
+  transition: all 0.4s;
+}
+.cart_arrow:hover {
+  cursor: pointer;
+  opacity: 0.6;
+  transition: all 0.4s;
+}
+.cart_wrap_icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
 @media (max-width: 930px) {
   .cart {
     width: 65%;

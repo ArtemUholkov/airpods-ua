@@ -39,9 +39,14 @@
       <div class="cart_content_wrapper">
         <div class="cart_info_wrapper">
           <h2 class="cart_title">Кошик</h2>
-          <div class="cart_close_space" onclick="closeCart()">
-            <span class="cart_close_stick"></span>
-            <span class="cart_close_stick"></span>
+          <div class="cart_wrap_icons">
+            <div class="cart_back_icon hide_form_elem">
+              <img src="img/cart/left.svg" alt="arrow" class="cart_arrow" />
+            </div>
+            <div class="cart_close_space" onclick="closeCart()">
+              <span class="cart_close_stick"></span>
+              <span class="cart_close_stick"></span>
+            </div>
           </div>
         </div>
         <div class="cart_items_wrapper"></div>
@@ -55,21 +60,26 @@
             method="post"
             id="email_form"
           >
+            <div class="input-container hide_form_elem" data-aos="fade-up" data-aos-duration="800">
+              <input required type="text" name="Subject" value="Нове замовлення з сайту" />
+            </div>
+            <div class="input-container hide_form_elem" data-aos="fade-up" data-aos-duration="800">
+              <input required type="text" name="text" class="hide_form_elem what_they_buy" />
+            </div>
             <div class="input-container" data-aos="fade-up" data-aos-duration="800">
-              <input required type="text" name="Subject" />
+              <input required type="text" name="extra_Name" />
               <label>Ім'я</label>
             </div>
-
             <div class="input-container" data-aos="fade-up" data-aos-duration="800">
-              <input required type="text" name="Surname" />
+              <input required type="text" name="extra_Surname" />
               <label>Прізвище</label>
             </div>
             <div class="input-container" data-aos="fade-up" data-aos-duration="800">
-              <input required type="tel" name="phone_number" />
+              <input required type="tel" name="extra_phone_number" />
               <label>Телефон</label>
             </div>
             <div class="input-container" data-aos="fade-up" data-aos-duration="800">
-              <input required type="text" name="Comment" />
+              <input required type="text" name="extra_Comment" />
               <label>Коментар</label>
             </div>
             <span class="form_title_text"
@@ -83,35 +93,32 @@
                 >
               </div>
               <div class="radio">
-                <input type="radio" id="courier" name="warehouse" value="courier" />
+                <input type="radio" id="courier" name="warehouse" value="warehouse1" />
                 <label for="courier" class="radio-label" onclick="renderFormContent()"
                   >Кур'єром</label
                 >
               </div>
             </div>
-
             <div class="input-container" data-aos="fade-up" data-aos-duration="800">
-              <input type="text" list="cities" class="cityselect" />
+              <input type="text" list="cities" class="cityselect" name="extra_City" />
               <label>Населений пункт</label>
               <datalist id="cities" class="city_list"> </datalist>
             </div>
-
             <div
               class="input-container"
               data-aos="fade-up"
               data-aos-duration="800"
               id="warehouseswrapper"
             >
-              <input type="text" list="warehouses" class="postselect" />
+              <input type="text" list="warehouses" class="postselect" name="extra_Post" />
               <label>Відділення/поштомат</label>
               <datalist class="post_list" id="warehouses" name="warehouses"> </datalist>
             </div>
             <div class="input-container" data-aos="fade-up" data-aos-duration="800" id="address">
-              <input type="text" name="address" />
+              <input type="text" name="extra_address" />
               <label>Адреса</label>
             </div>
 
-            <input type="hidden" name="access_token" value="" />
             <span class="form_title_text">Оплата<span class="form_title_text_star"> *</span></span>
 
             <div class="form_selector_wrapper">
@@ -121,9 +128,9 @@
               </div>
               <div class="radio">
                 <input type="radio" id="contactChoice31" name="contact" value="333" disabled />
-                <label for="contactChoice31" class="radio-label"
-                  >Онлайн-оплата карткою Visa, Mastercard - LiqPay</label
-                >
+                <label for="contactChoice31" class="radio-label">
+                  Онлайн-оплата карткою Visa, Mastercard - LiqPay
+                </label>
               </div>
             </div>
             <div class="input-container">
@@ -134,9 +141,13 @@
                 class="form_button main_button red_button mobile_button"
               />
             </div>
-            <input type="hidden" name="access_token" value="" />
+            <input type="hidden" name="access_token" value="b6ptufawi5qmc6uw1hqngyoz" />
 
-            <input type="hidden" name="success_url" value=".thankyou.html" />
+            <input
+              type="hidden"
+              name="success_url"
+              value=".?message=Email+Successfully+Sent%21&isError=0"
+            />
             <input
               type="hidden"
               name="error_url"
