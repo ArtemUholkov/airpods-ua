@@ -262,7 +262,7 @@ const citySelect = document.querySelector('.cityselect');
 const cityList = document.querySelector('.city_list');
 let cityFinalList = [];
 let output = '';
-const delay = 400;
+const delay = 200;
 let timer;
 let delivery;
 

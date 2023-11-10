@@ -231,7 +231,7 @@
 }
 @media (max-width: 600px) {
   .main_text_2 {
-    margin-bottom: 56px;
+    margin-bottom: 25px;
   }
   .mobile_button {
     display: flex;

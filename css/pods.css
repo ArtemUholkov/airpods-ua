@@ -112,7 +112,7 @@ h2 {
 }
 @media (max-width: 900px) {
   .pods_wrapper {
-    padding: 40px 20px;
+    padding: 40px 20px 50px 20px;
   }
 }
 @media (max-width: 836px) {

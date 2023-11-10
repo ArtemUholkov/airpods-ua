@@ -9,7 +9,7 @@ header {
 .active {
 }
 .blur_head {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(160, 160, 160, 0.5);
   transition: all 0.5s;
 }
 .header_wrapper {
@@ -123,6 +123,7 @@ header {
 }
 .cart_icon {
   transition: all 0.5s;
+  height: 44px;
 }
 .cart_icon_wrapper {
   position: relative;
