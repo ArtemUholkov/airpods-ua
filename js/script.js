@@ -277,7 +277,7 @@ buttonInCart.addEventListener('click', (event) => {
 
     // console.log(`${finTitle}: ${finQuantity}шт`);
     fullRow += ` ${finTitle}: ${finQuantity}шт `;
-    whatTheyBuy.value = fullRow;
+    whatTheyBuy.value = fullRow + `, Загалом: ${totalPrice.innerHTML}грн`;
     console.log(fullRow, whatTheyBuy.value);
   });
 });
