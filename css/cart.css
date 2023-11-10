@@ -378,6 +378,7 @@ input[type='email']:valid ~ label {
 }
 
 .form_button {
+  display: block;
   font-size: 18px;
   border: 0;
   font-weight: 600;
