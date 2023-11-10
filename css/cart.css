@@ -381,7 +381,9 @@ input[type='email']:valid ~ label {
   font-size: 18px;
   border: 0;
   font-weight: 600;
-  padding: 20px 40px;
+  padding: 0;
+  width: auto;
+  height: 49px;
 }
 .form_button:hover {
   cursor: pointer;
@@ -444,6 +446,12 @@ input[type='email']:valid ~ label {
 }
 .radio input[type='radio'] + .radio-label:empty:before {
   margin-right: 0;
+}
+.cart_total_wrapper_cart {
+  margin-bottom: 15px;
+}
+.m-top {
+  margin-top: 0;
 }
 
 @media (max-width: 930px) {

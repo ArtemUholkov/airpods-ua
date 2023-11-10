@@ -49,7 +49,12 @@
           <span class="form_title_text"
             >Контактні дані<span class="form_title_text_star"> *</span></span
           >
-          <form action="https://postmail.invotes.com/send" method="post" id="email_form">
+          <form
+            class="order_form"
+            action="https://postmail.invotes.com/send"
+            method="post"
+            id="email_form"
+          >
             <div class="input-container" data-aos="fade-up" data-aos-duration="800">
               <input required type="text" name="Subject" />
               <label>Ім'я</label>
@@ -115,12 +120,28 @@
                 <label for="contactChoice21" class="radio-label">Післяплата "Нова Пошта"</label>
               </div>
               <div class="radio">
-                <input type="radio" id="contactChoice31" name="contact" value="333" />
+                <input type="radio" id="contactChoice31" name="contact" value="333" disabled />
                 <label for="contactChoice31" class="radio-label"
                   >Онлайн-оплата карткою Visa, Mastercard - LiqPay</label
                 >
               </div>
             </div>
+            <div class="input-container">
+              <input
+                id="submit_form"
+                type="submit"
+                value="Оформити замовлення"
+                class="form_button main_button red_button mobile_button"
+              />
+            </div>
+            <input type="hidden" name="access_token" value="" />
+
+            <input type="hidden" name="success_url" value=".thankyou.html" />
+            <input
+              type="hidden"
+              name="error_url"
+              value=".?message=Email+could+not+be+sent.&isError=1"
+            />
           </form>
         </div>
         <div class="cart_final_wrapper">
@@ -161,7 +182,7 @@
           </div>
           <div class="header_pair">
             <div class="header_button_pair">
-              <a href="" class="main_button" onclick="scrollToPods()"
+              <a class="main_button" onclick="scrollToPods()"
                 >Обери найкраще
                 <img class="arrow_icon" src="img/global/icon-arrow-black.png" alt="icon"
               /></a>

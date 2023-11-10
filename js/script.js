@@ -229,6 +229,11 @@ buttonInCart.addEventListener('click', (event) => {
   const cartItemsPrice = document.querySelectorAll('.cart_item_text_price');
   const cartTitle = document.querySelector('.cart_title');
   const formWrapper = document.querySelector('.form_wrapper');
+  const finalWrapper = document.querySelector('.cart_final_wrapper');
+  const orderForm = document.querySelector('.order_form');
+  const orderFormButton = document.querySelector('.form_button');
+  const cartTotalWrapper = document.querySelector('.cart_total_wrapper');
+
   cartItems.forEach((e) => {
     e.classList.add('cart_item_afterclick');
   });
@@ -256,6 +261,11 @@ buttonInCart.addEventListener('click', (event) => {
     e.classList.add('no-click');
   });
   formWrapper.classList.add('make_visual');
+  buttonInCart.classList.add('cart_item_display_none');
+  orderForm.appendChild(finalWrapper);
+  orderForm.appendChild(orderFormButton);
+  cartTotalWrapper.classList.add('cart_total_wrapper_cart');
+  finalWrapper.classList.add('m-top');
 });
 
 const citySelect = document.querySelector('.cityselect');
