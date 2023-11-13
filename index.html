@@ -49,19 +49,18 @@
             </div>
           </div>
         </div>
+        <div class="after_text_wrapper cart_item_display_none">
+          <p class="after_text_wrapper_title">Дякуємо, Ваше замовлення прийняте!</p>
+          <p class="after_text_wrapper_subtitle">Ми незабаром зв’яжемося з Вами!</p>
+        </div>
         <div class="cart_items_wrapper"></div>
         <div class="form_wrapper">
           <span class="form_title_text"
             >Контактні дані<span class="form_title_text_star"> *</span></span
           >
-          <form
-            class="order_form"
-            action="https://postmail.invotes.com/send"
-            method="post"
-            id="email_form"
-          >
+          <form class="order_form" id="javascript_form">
             <div class="input-container hide_form_elem" data-aos="fade-up" data-aos-duration="800">
-              <input required type="text" name="Subject" value="Нове замовлення з сайту" />
+              <input required type="text" name="subject" value="Нове замовлення з сайту" />
             </div>
             <div class="input-container hide_form_elem" data-aos="fade-up" data-aos-duration="800">
               <input required type="text" name="text" class="hide_form_elem what_they_buy" />
@@ -135,25 +134,123 @@
             </div>
             <div class="input-container">
               <input
-                id="submit_form"
+                id="js_send"
                 type="submit"
                 value="Оформити замовлення"
                 class="form_button main_button red_button mobile_button"
               />
             </div>
-            <input type="hidden" name="access_token" value="b6ptufawi5qmc6uw1hqngyoz" />
-
-            <input
-              type="hidden"
-              name="success_url"
-              value=".?message=Email+Successfully+Sent%21&isError=0"
-            />
-            <input
-              type="hidden"
-              name="error_url"
-              value=".?message=Email+could+not+be+sent.&isError=1"
-            />
           </form>
+          <script>
+            //update this with your js_form selector
+            var form_id_js = 'javascript_form';
+
+            var data_js = {
+              access_token: 'b6ptufawi5qmc6uw1hqngyoz',
+            };
+
+            function js_onSuccess() {
+              // remove this to avoid redirect
+              console.log('sent');
+              sendButton.value = 'Sent';
+              sendButton.disabled = false;
+              const cartTitle = document
+                .querySelector('.cart_title')
+                .classList.add('cart_item_display_none');
+              const formWrap = document
+                .querySelector('.form_wrapper')
+                .classList.remove('make_visual');
+              const cartBackIconafter = document
+                .querySelector('.cart_back_icon')
+                .classList.add('cart_item_display_none');
+              const numberWrap = document
+                .querySelector('.cart_number')
+                .classList.remove('cart_number_visual');
+              const afterText = document
+                .querySelector('.after_text_wrapper')
+                .classList.remove('cart_item_display_none');
+              const linkButton = document
+                .querySelector('.cart_after_button')
+                .classList.remove('cart_item_display_none');
+              const linkButtonMob = document
+                .querySelector('.cart_after_button_mobile')
+                .classList.remove('cart_item_display_none');
+            }
+
+            function js_onError(error) {
+              // remove this to avoid redirect
+              window.location =
+                window.location.pathname + '?message=Email+could+not+be+sent.&isError=1';
+            }
+
+            var sendButton = document.getElementById('js_send');
+
+            function js_send() {
+              sendButton.value = 'Sending…';
+              sendButton.disabled = true;
+              var request = new XMLHttpRequest();
+              request.onreadystatechange = function () {
+                if (request.readyState == 4 && request.status == 200) {
+                  js_onSuccess();
+                } else if (request.readyState == 4) {
+                  js_onError(request.response);
+                }
+              };
+
+              var subject = document.querySelector('#' + form_id_js + " [name='subject']").value;
+              var message = document.querySelector('#' + form_id_js + " [name='text']").value;
+              var name = document.querySelector('#' + form_id_js + " [name='extra_Name']").value;
+              var surname = document.querySelector(
+                '#' + form_id_js + " [name='extra_Surname']",
+              ).value;
+              var phoneNumber = document.querySelector(
+                '#' + form_id_js + " [name='extra_phone_number']",
+              ).value;
+              var comment = document.querySelector(
+                '#' + form_id_js + " [name='extra_Comment']",
+              ).value;
+              var city = document.querySelector('#' + form_id_js + " [name='extra_City']").value;
+              var post = document.querySelector('#' + form_id_js + " [name='extra_Post']").value;
+              var address = document.querySelector(
+                '#' + form_id_js + " [name='extra_address']",
+              ).value;
+
+              data_js['subject'] = subject;
+              data_js['text'] = message;
+              data_js['extra_Name'] = name;
+              data_js['extra_Surname'] = surname;
+              data_js['extra_phone_number'] = phoneNumber;
+              data_js['extra_Comment'] = comment;
+              data_js['extra_City'] = city;
+              data_js['extra_Post'] = post;
+              data_js['extra_address'] = address;
+
+              var params = toParams(data_js);
+
+              request.open('POST', 'https://postmail.invotes.com/send', true);
+              request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+              request.send(params);
+
+              return false;
+            }
+
+            sendButton.onclick = js_send;
+
+            function toParams(data_js) {
+              var form_data = [];
+              for (var key in data_js) {
+                form_data.push(encodeURIComponent(key) + '=' + encodeURIComponent(data_js[key]));
+              }
+
+              return form_data.join('&');
+            }
+
+            var js_form = document.getElementById(form_id_js);
+            js_form.addEventListener('submit', function (e) {
+              e.preventDefault();
+            });
+          </script>
         </div>
         <div class="cart_final_wrapper">
           <div class="cart_discount_wrapper">
@@ -171,6 +268,18 @@
             >ОФОРМИТИ ЗАМОВЛЕННЯ</a
           >
         </div>
+        <a
+          href="https://instagram.com/lusuy_ears1?igshid=MzRlODBiNWFlZA=="
+          target="_blank"
+          class="main_button red_button cart_after_button cart_item_display_none"
+          >ВІДВІДАЙТЕ НАШІ СОЦМЕРЕЖІ</a
+        >
+        <a
+          href="https://instagram.com/lusuy_ears1?igshid=MzRlODBiNWFlZA=="
+          target="_blank"
+          class="main_button red_button cart_after_button_mobile cart_item_display_none"
+          >НАШІ СОЦМЕРЕЖІ</a
+        >
       </div>
     </section>
 
