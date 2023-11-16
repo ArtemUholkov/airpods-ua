@@ -63,7 +63,13 @@
               <input required type="text" name="subject" value="Нове замовлення з сайту" />
             </div>
             <div class="input-container hide_form_elem" data-aos="fade-up" data-aos-duration="800">
-              <input required type="text" name="text" class="hide_form_elem what_they_buy" />
+              <input
+                required
+                type="text"
+                name="text"
+                class="hide_form_elem what_they_buy"
+                value="Товар не був обраний"
+              />
             </div>
             <div class="input-container" data-aos="fade-up" data-aos-duration="800">
               <input required type="text" name="extra_Name" />
@@ -78,7 +84,7 @@
               <label>Телефон</label>
             </div>
             <div class="input-container" data-aos="fade-up" data-aos-duration="800">
-              <input required type="text" name="extra_Comment" />
+              <input type="text" name="extra_Comment" />
               <label>Коментар</label>
             </div>
             <span class="form_title_text"
@@ -99,7 +105,7 @@
               </div>
             </div>
             <div class="input-container" data-aos="fade-up" data-aos-duration="800">
-              <input type="text" list="cities" class="cityselect" name="extra_City" />
+              <input type="text" list="cities" class="cityselect" name="extra_City" value=" " />
               <label>Населений пункт</label>
               <datalist id="cities" class="city_list"> </datalist>
             </div>
@@ -109,12 +115,12 @@
               data-aos-duration="800"
               id="warehouseswrapper"
             >
-              <input type="text" list="warehouses" class="postselect" name="extra_Post" />
+              <input type="text" list="warehouses" class="postselect" name="extra_Post" value=" " />
               <label>Відділення/поштомат</label>
               <datalist class="post_list" id="warehouses"> </datalist>
             </div>
             <div class="input-container" data-aos="fade-up" data-aos-duration="800" id="address">
-              <input type="text" name="extra_address" />
+              <input type="text" name="extra_address" value=" " />
               <label>Адреса</label>
             </div>
 
@@ -146,14 +152,14 @@
             var form_id_js = 'javascript_form';
 
             var data_js = {
-              access_token: 'za7orhgqlhq912c0ejrp7i3l',
+              access_token: 'b6ptufawi5qmc6uw1hqngyoz',
             };
 
             function js_onSuccess() {
               // remove this to avoid redirect
               console.log('sent');
               sendButton.value = 'Sent';
-              sendButton.disabled = false;
+
               const cartTitle = document
                 .querySelector('.cart_title')
                 .classList.add('cart_item_display_none');
@@ -235,8 +241,13 @@
               return false;
             }
 
-            sendButton.onclick = js_send;
+            sendButton.onclick = checkValid;
 
+            function checkValid() {
+              if (js_form.checkValidity() == true) {
+                js_send();
+              }
+            }
             function toParams(data_js) {
               var form_data = [];
               for (var key in data_js) {
