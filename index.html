@@ -14,6 +14,12 @@
     />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"
+      integrity="sha512-a+SUDuwNzXDvz4XrIcXHuCf089/iJAoN4lmrXJg18XnduKK6YlDHNRalv4yd1N40OKI80tFidF+rqTFKGPoWFQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
       integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
       crossorigin="anonymous"
@@ -53,6 +59,27 @@
           <p class="after_text_wrapper_title">Дякуємо, Ваше замовлення прийняте!</p>
           <p class="after_text_wrapper_subtitle">Ми незабаром зв’яжемося з Вами!</p>
         </div>
+        <form
+          method="POST"
+          action="https://www.liqpay.ua/api/3/checkout"
+          accept-charset="utf-8"
+          class="pay_form cart_item_display_none"
+        >
+          <input id="data" type="hidden" name="data" value="" />
+          <input type="hidden" name="signature" id="signature" value="" />
+          <button
+            class="liqpay_button"
+            onmouseover="this.style.opacity='0.5';"
+            onmouseout="this.style.opacity='1';"
+          >
+            <img
+              src="https://static.liqpay.ua/buttons/logo-white.svg"
+              name="btn_text"
+              style="vertical-align: middle !important"
+            />
+            <span class="liqpay_text" style="">Сплатити</span>
+          </button>
+        </form>
         <div class="cart_items_wrapper"></div>
         <div class="form_wrapper">
           <span class="form_title_text"
@@ -128,11 +155,11 @@
 
             <div class="form_selector_wrapper">
               <div class="radio">
-                <input type="radio" id="contactChoice21" name="contact" value="123" checked />
+                <input type="radio" id="contactChoice21" name="contact" value="after" checked />
                 <label for="contactChoice21" class="radio-label">Післяплата "Нова Пошта"</label>
               </div>
               <div class="radio">
-                <input type="radio" id="contactChoice31" name="contact" value="333" disabled />
+                <input type="radio" id="contactChoice31" name="contact" value="card" />
                 <label for="contactChoice31" class="radio-label">
                   Онлайн-оплата карткою Visa, Mastercard - LiqPay
                 </label>
@@ -152,7 +179,19 @@
             var form_id_js = 'javascript_form';
 
             var data_js = {
-              access_token: 'za7orhgqlhq912c0ejrp7i3l',
+              access_token: 'b6ptufawi5qmc6uw1hqngyoz',
+            };
+            let isChecked = false;
+
+            json_string = {
+              public_key: 'sandbox_i28872042726',
+              version: '3',
+              action: 'pay',
+              amount: '300',
+              currency: 'UAH',
+              description: 'test',
+              order_id: '000001',
+              result_url: 'https://artemuholkov.github.io/airpods-ua/',
             };
 
             function js_onSuccess() {
@@ -181,6 +220,9 @@
               const linkButtonMob = document
                 .querySelector('.cart_after_button_mobile')
                 .classList.remove('cart_item_display_none');
+              if (isChecked == true) {
+                document.querySelector('.pay_form').classList.remove('cart_item_display_none');
+              }
             }
 
             function js_onError(error) {
@@ -202,6 +244,35 @@
                   js_onError(request.response);
                 }
               };
+
+              const var1 = document.querySelector('#contactChoice21');
+              const var2 = document.querySelector('#contactChoice31');
+
+              if (var1.checked) {
+                isChecked = false;
+              } else if (var2.checked) {
+                isChecked = true;
+              }
+              json_string.amount = document.querySelector('.cart_total_amount').innerHTML;
+              console.log(json_string);
+              let key = 'sandbox_pPSWElvPb6e4n60ymaIRjQOVNtE7NAZJMLs2cjmI';
+              let data = btoa(JSON.stringify(json_string));
+
+              console.log(JSON.stringify(json_string));
+
+              let sign_string = key + data + key;
+
+              async function sha1(str) {
+                const buf = Uint8Array.from(unescape(encodeURIComponent(str)), (c) =>
+                  c.charCodeAt(0),
+                ).buffer;
+                const digest = await crypto.subtle.digest('SHA-1', buf);
+                const raw = String.fromCharCode.apply(null, new Uint8Array(digest));
+                const signature = btoa(raw);
+                document.querySelector('#signature').value = signature;
+              }
+              sha1(sign_string);
+              document.querySelector('#data').value = data;
 
               var subject = document.querySelector('#' + form_id_js + " [name='subject']").value;
               var message = document.querySelector('#' + form_id_js + " [name='text']").value;
