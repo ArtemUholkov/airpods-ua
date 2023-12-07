@@ -344,6 +344,25 @@ input[type='text'] {
   vertical-align: middle;
   margin-left: 8px;
 }
+.socials_wrapper {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+.cart_media {
+  text-decoration: none;
+  color: #000;
+  transition: 0.3s all;
+}
+i {
+  font-size: 40px;
+}
+.cart_media:hover {
+  opacity: 0.6;
+  transition: 0.3s all;
+}
 
 input[type='text']:focus {
   border-bottom: solid 1px var(--usual-decorations);

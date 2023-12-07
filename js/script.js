@@ -349,7 +349,7 @@ citySelect.addEventListener('input', () => {
     cityFinalList = [];
     output = '';
     const formData = {
-      apiKey: 'eb0efa8a715f3b6c7e99c866dff664bd',
+      apiKey: '2279eab00c1c577b56c924b77e9db7d2',
       modelName: 'Address',
       calledMethod: 'searchSettlements',
       methodProperties: {
@@ -369,6 +369,7 @@ citySelect.addEventListener('input', () => {
     fetch(url, options)
       .then((response) => response.json())
       .then((res) => {
+        console.log(res);
         for (let i = 0; i < res.data[0].Addresses.length; i++) {
           if (citySelect.value == res.data[0].Addresses[i].Present) {
             delivery = res.data[0].Addresses[i].DeliveryCity;
@@ -395,7 +396,7 @@ citySelect.addEventListener('input', () => {
           timerw = setTimeout(() => {
             // ЗАПИТ
             const formData = {
-              apiKey: 'eb0efa8a715f3b6c7e99c866dff664bd',
+              apiKey: '2279eab00c1c577b56c924b77e9db7d2',
               modelName: 'Address',
               calledMethod: 'getWarehouses',
               methodProperties: {

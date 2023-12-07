@@ -25,6 +25,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <script src="https://kit.fontawesome.com/fbceaed2ac.js" crossorigin="anonymous"></script>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -59,6 +60,9 @@
           <p class="after_text_wrapper_title">Дякуємо, Ваше замовлення прийняте!</p>
           <p class="after_text_wrapper_subtitle">Ми незабаром зв’яжемося з Вами!</p>
         </div>
+
+        <div class="cart_items_wrapper"></div>
+
         <form
           method="POST"
           action="https://www.liqpay.ua/api/3/checkout"
@@ -77,10 +81,20 @@
               name="btn_text"
               style="vertical-align: middle !important"
             />
-            <span class="liqpay_text" style="">Сплатити</span>
+            <span class="liqpay_text">Сплатити</span>
           </button>
         </form>
-        <div class="cart_items_wrapper"></div>
+        <div class="socials_wrapper cart_item_display_none">
+          <a
+            href="https://instagram.com/lusuy_ears1?igshid=MzRlODBiNWFlZA=="
+            target="_blank"
+            class="cart_media"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+          <a href="https://t.me/lusuy_ears_tg" target="_blank" class="cart_media"
+            ><i class="fa-brands fa-telegram"></i
+          ></a>
+        </div>
         <div class="form_wrapper">
           <span class="form_title_text"
             >Контактні дані<span class="form_title_text_star"> *</span></span
@@ -189,7 +203,7 @@
               action: 'pay',
               amount: '300',
               currency: 'UAH',
-              description: 'test',
+              description: 'Payment for lusuyears.com.ua',
               order_id: '000001',
               result_url: 'https://artemuholkov.github.io/airpods-ua/',
             };
@@ -199,6 +213,9 @@
               console.log('sent');
               sendButton.value = 'Sent';
 
+              const linkSco = document
+                .querySelector('.socials_wrapper')
+                .classList.remove('cart_item_display_none');
               const cartTitle = document
                 .querySelector('.cart_title')
                 .classList.add('cart_item_display_none');
@@ -214,12 +231,8 @@
               const afterText = document
                 .querySelector('.after_text_wrapper')
                 .classList.remove('cart_item_display_none');
-              const linkButton = document
-                .querySelector('.cart_after_button')
-                .classList.remove('cart_item_display_none');
-              const linkButtonMob = document
-                .querySelector('.cart_after_button_mobile')
-                .classList.remove('cart_item_display_none');
+
+              console.log(isChecked);
               if (isChecked == true) {
                 document.querySelector('.pay_form').classList.remove('cart_item_display_none');
               }
@@ -254,6 +267,7 @@
                 isChecked = true;
               }
               json_string.amount = document.querySelector('.cart_total_amount').innerHTML;
+
               console.log(json_string);
               let key = 'sandbox_pPSWElvPb6e4n60ymaIRjQOVNtE7NAZJMLs2cjmI';
               let data = btoa(JSON.stringify(json_string));
@@ -350,7 +364,8 @@
             >ОФОРМИТИ ЗАМОВЛЕННЯ</a
           >
         </div>
-        <a
+
+        <!-- <a
           href="https://instagram.com/lusuy_ears1?igshid=MzRlODBiNWFlZA=="
           target="_blank"
           class="main_button red_button cart_after_button cart_item_display_none"
@@ -361,7 +376,7 @@
           target="_blank"
           class="main_button red_button cart_after_button_mobile cart_item_display_none"
           >НАШІ СОЦМЕРЕЖІ</a
-        >
+        > -->
       </div>
     </section>
 
