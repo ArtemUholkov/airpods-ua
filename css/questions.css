@@ -46,6 +46,15 @@
   outline: 0;
   --bs-accordion-border-color: transparent;
 }
+.adress_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.address-item {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
 
 .accordion-item {
   background-color: transparent;

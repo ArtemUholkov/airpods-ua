@@ -340,6 +340,16 @@ input[type='text'] {
   height: 50px;
   width: 200px;
 }
+.visa_mast_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.visa_mast {
+  height: 40px;
+  width: auto;
+}
 .liqpay_text {
   vertical-align: middle;
   margin-left: 8px;
